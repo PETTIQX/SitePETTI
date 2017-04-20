@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <title>PET-TI Quixadá</title>
+
+    <!-- CSS  -->
+    <!--Import Google Icon Font-->
+	<link th:href="@{http://fonts.googleapis.com/icon?family=Material+Icons}" rel="stylesheet" />
+	<!--Import materialize.css-->
+	<link th:href="@{webjars/materializecss/css/materialize.css}" type="text/css" rel="stylesheet" media="screen,projection" />
+    
+    <!-- Import our CSS -->
+	<link th:href="@{css/style.css}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link th:href="@{css/estilo.css}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="shortcut icon" th:href="@{favicon.ico}" />
+    
+    <script th:src="@{https://use.fontawesome.com/2468e00924.js}"></script>
+
+</head>
+
+<body>
+
+    
+	<div th:include="fragments/navbar"></div>
+
+    <!-- Parallax começa aqui -->
+
+
+
+    <!-- Sobre -->
+    <section class="sobre indigo accent-1" id="sobre">
+        <div class="container indigo accent-1" id="sobre">
+            <div class="section indigo accent-1">
+                <p>
+                    <h4 class="center titulo_secao">Nossos pilares</h4>
+                </p>
+                <!--   Icon Section   -->
+                <div class="row">
+                    <div class="col s12 m4">
+                        <div class="icon-block">
+                            <figure class="icone-inicio">
+                                <img class="responsive-img" src="img/icones/ensino.png" alt="Pesquisa"/>
+                            </figure>
+                            <h5 class="center">Ensino</h5>
+                            <p class="center"> Projetos e atividades para melhorar as graduações do campus da UFC em Quixadá.</p>
+                        </div>
+                    </div>
+                    <div class="col s12 m4">
+                        <div class="icon-block">
+                            <figure class="icone-inicio">
+                                <img class="responsive-img" src="img/icones/pesquisa.png" alt="Ensino"/>
+                            </figure>
+                            <h5 class="center">Pesquisa</h5>
+                            <p class="center">Nas áreas de Design Digital, Engenharia de Software, Ciência da Computação, Engenharia da Computação, Sistemas de Informação e Redes de Computadores.</p>
+                        </div>
+                    </div>
+                    <div class="col s12 m4">
+                        <div class="icon-block">
+                            <figure class="icone-inicio extensao">
+                                <img class="responsive-img" src="img/icones/extensao.png" alt="Extensão"/>
+                            </figure>
+                            <h5 class="center">Extensão</h5>
+                            <p class="center">Organizamos o FLISoL Quixadá, InfoGirl e Game Night.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Fim Sobre-->
+
+    <!--Banner -->
+    <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="header col s12 light"></h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img src="img/background2.jpg" alt="Unsplashed background img 2"/></div>
+    </div>
+    <!--Fim Banner-->
+
+    <!--Atividades-->
+    <section class="atividades-class  light-green lighten-2" id="atividades">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 center">
+                    <h4 class="center titulo_secao">Atividades</h4>
+                    <hr/>
+                    <br/>
+                    <!-- Linha de separação -->
+                    <div id="container-atividades center">
+
+                        <div class="col s6 m3 l3">
+                            <div class="atividade">
+                                <figure class="icone-atividade">
+                                    <a href="#modal"><img class="circle reponsive-img" src="img/flisol.png" title="FLISoL Quixadá"/></a>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="col s6 m3 l3">
+                            <div class="atividade">
+                                <figure class="icone-integrante">
+                                    <a href="#modal"><img class="circle reponsive-img" src="img/game-night.png" title="GameNight"/></a>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="col s6 m3 l3">
+                            <div class="atividade">
+                                <figure class="icone-integrante">
+                                    <a href="#modal"><img class="circle reponsive-img" src="img/english-club.png" title="English Club"/></a>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="col s6 m3 l3">
+                            <div class="membro">
+                                <figure class="icone-integrante">
+                                    <a href="#modal"><img class="circle reponsive-img" src="img/feira-de-cursos.png" title="Feira de Cursos"/></a>
+                                </figure>
+                            </div>
+                        </div>
+
+
+                        <div class="col s6 m3 l3">
+                            <div class="membro">
+                                <figure class="icone-integrante">
+                                    <a href="#modal"><img class="circle reponsive-img" src="img/code-jovem.png" title="Projeto nas escolas"/></a>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="col s6 m3 l3">
+                            <div class="membro">
+                                <figure class="icone-integrante">
+                                    <a href="#modal"><img class="circle reponsive-img" src="img/hackathon.png" title="HACKATHON"/></a>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="col s6 m3 l3">
+                            <div class="membro">
+                                <figure class="icone-integrante">
+                                    <a href="#modal"><img class="circle reponsive-img" src="img/recepcao.png" title="Recepção dos calouros"/></a>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Fim atividades -->
+
+    <!--Banner -->
+    <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="header col s12 light"></h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img src="img/background2.jpg" alt="Unsplashed background img 2"/></div>
+    </div>
+    <!-- Fim Banner -->
+
+    <!-- Membros -->
+    <section class="membros-class yellow lighten-3" id="membros-atuais">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 center">
+                    <h4 class="center titulo_secao">Integrantes</h4>
+                    <hr/>
+                    <!-- Linha de separação -->
+                    <div id="container-membros center">
+                        <div class="col s12 center">
+                            <div class="tutor center">
+                                <figure class="icone-integrante">
+                                    <a href="#modal"><img class="circle reponsive-img" src="img/carla.jpeg" title="Carla Ilane"/></a>
+                                </figure>
+                            </div>
+                        </div>
+                        <br/>
+
+                        <div class="col s6 m3 l3">
+                            <div class="membro">
+                                <figure class="icone-integrante">
+                                    <a href="#modal"><img class="circle reponsive-img" src="img/tiago.jpeg" title="Tiago Nascimento"/></a>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="col s6 m3 l3">
+                            <div class="membro">
+                                <figure class="icone-integrante">
+                                    <a href="#modal"><img class="circle reponsive-img" src="img/micaele.jpeg" title="Micaele Vieira"/></a>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="col s6 m3 l3">
+                            <div class="membro">
+                                <figure class="icone-integrante">
+                                    <a href="#modal"><img class="circle reponsive-img" src="img/julio.jpeg" title="Júlio Serafim"/></a>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="col s6 m3 l3">
+                            <div class="membro">
+                                <figure class="icone-integrante">
+                                    <a href="#modal"><img class="circle reponsive-img" src="img/camila.jpeg" title="Camila Leal"/></a>
+                                </figure>
+                            </div>
+                        </div>
+
+
+                        <div class="col s6 m3 l3">
+                            <div class="membro">
+                                <figure class="icone-integrante">
+                                    <a href="#modal"><img class="circle reponsive-img" src="img/jordy.jpeg" title="Jordy Ferreira"/></a>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="col s6 m3 l3">
+                            <div class="membro">
+                                <figure class="icone-integrante">
+                                    <a href="#modal"><img class="circle reponsive-img" src="img/raul.jpeg" title="Raul de Araújo"/></a>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Fim integrantes -->
+
+    <!--Banner -->
+    <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="header col s12 light"></h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img src="img/background2.jpg" alt="Unsplashed background img 2"/></div>
+    </div>
+    <!-- Fim Banner -->
+
+    <div th:include="fragments/footer"></div>
+
+    <!--Import jQuery before materialize.js-->
+	<script th:src="@{webjars/jquery/jquery.js}"></script>
+	<script th:src="@{webjars/materializecss/js/materialize.js}"></script>
+    
+    <script th:src="@{js/init.js}"></script>
+
+    <script>
+        // DropDown Animação
+        $('.dropdown-button').dropdown({
+            inDuration: 300,
+            outDuration: 190,
+            constrainWidth: false, // Does not change width of dropdown to that of the activator
+            hover: true, // Activate on hover
+            gutter: 0, // Spacing from edge
+            belowOrigin: false, // Displays dropdown below the button
+            alignment: 'left', // Displays dropdown with edge aligned to the left of button
+            stopPropagation: false // Stops event propagation
+        });
+
+
+        //Diz para o navegador o que será carregado no momento em que a página é acessada.
+        jQuery("document").ready(function($) {
+
+            //Elemento que vai receber os eventos.
+            var nav = $('.white');
+
+            //Ao rolar a página, a função será executada.
+            $(window).scroll(function() {
+                //Se o tamanho da parte rodada for maior que 136px (pixels) ->
+                if ($(this).scrollTop() > 136) {
+                    nav.addClass("scrolled_menu"); //Aplica a classe scrolled_menu no elemento .menu
+                } else {
+                    nav.removeClass("scrolled_menu"); //Remove a classe scrolled_menu no elemento .menu
+                }
+            });
+
+        });
+
+        // Botão responsivo do menu
+        $(".button-collapse").sideNav();
+
+        // Modal
+        $('.modal').modal({
+            dismissible: true, // Modal can be dismissed by clicking outside of the modal
+            opacity: .6, // Opacity of modal background
+            inDuration: 300, // Transition in duration
+            outDuration: 200, // Transition out duration
+            startingTop: '5%', // Starting top style attribute
+            endingTop: '10%', // Ending top style attribute
+            ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+
+                console.log(modal, trigger);
+            },
+            complete: function() {
+
+                } // Callback for Modal close
+        });
+    </script>
+
+</body>
+
+</html>

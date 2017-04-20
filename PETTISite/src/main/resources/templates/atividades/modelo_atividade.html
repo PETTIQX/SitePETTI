@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <title>PET-TI Quixadá</title>
+
+    <!-- CSS  -->
+    <!--Import Google Icon Font-->
+	<link th:href="@{http://fonts.googleapis.com/icon?family=Material+Icons}" rel="stylesheet" />
+	<!--Import materialize.css-->
+	<link th:href="@{webjars/materializecss/css/materialize.css}" type="text/css" rel="stylesheet" media="screen,projection" />
+    
+    <!-- Import our CSS -->
+	<link th:href="@{css/style.css}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link th:href="@{css/estilo.css}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="shortcut icon" th:href="@{favicon.ico}" />
+    
+    <script th:src="@{https://use.fontawesome.com/2468e00924.js}"></script>
+
+</head>
+<body>
+
+
+  <!--Sub-Menu-->
+  <ul class="dropdown-content" id="sub-menu-petianos">
+    <li><a href="../index.html#membros-atuais">Atuais</a></li>
+    <li><a href="../egressos/egressos.html">Egressos</a></li>
+
+
+  </ul>
+  <!--Fim Sub-Menu-->
+	
+	<div th:include="fragments/navbar"></div> 
+
+  <!-- Section atividade-->
+  <section id="descricao-atividade">
+          <center>
+              <figure class="logo-atividade">
+                  <img src="../img/atividades/ingles.png" alt="Ingles">
+              </figure>
+              <p id="texto-atividade">O UWeb é uma atividade que visa disseminar os conhecimentos básicos de programação Web para os alunos com computação como área fim na UFC. Esta é uma área de repercussão junto aos alunos por ser uma área de demanda por profissionais habilitados no mercado, além de proporcionar a aplicação de conhecimentos de várias áreas da computação. A atividade consiste em um minicurso com aulas semanais onde haverá um professor e um. Além das aulas haverá trabalhos e “jams” (competições de espírito motivacional para desenvolvimento de produtos) para os alunos aplicarem de uma forma diferente seus trabalhos. A atividade espera receber alunos de todos os semestres e dos três cursos ligados à área de computação da UFC: Ciência da Computação; Engenharia da Computação e Mídias Digitais. O principal objetivo da atividade é a disseminação dos conhecimentos e práticas básicas de programação web para os alunos da Universidade Federal do Ceará. Além de buscar a disseminação desses conhecimentos, a atividade também pretende capacitar os alunos a trabalhar com criação e manutenção de algumas plataformas web. Como a programação web não consta na matriz curricular dos cursos da área de computação da UFC, a atividade pode ser vista como complementação curricular, atualização profissional e como um fator motivacional para os alunos dos três cursos. A atividade consiste em um minicurso com aulas semanais com um professor e um monitor. Haverá trabalhos e “jams” (competições para desenvolvimento de produtos) para os alunos aplicarem de uma forma diferente seus trabalhos. Através de uma mistura de aulas teóricas e práticas, assim como de trabalhos e projetos, tentaremos tornar a experiência bastante produtiva para os alunos. A atividade se beneficiará da experiência de alunos mais veteranos que se interessam pela área de desenvolvimento web, alguns com experiência profissional. Para estes alunos a atividade é uma oportunidade de aplicarem seus conhecimentos e se desenvolverem ainda mais. Para os alunos iniciantes na área é uma oportunidade de entrar em contato com uma das áreas mais promissoras em termos de posicionamento no mercado. Esperamos, com isso, o aprofundamento dos conhecimentos teóricos e práticos em programação web por parte dos alunos com experiência na área. Fazemos uma introdução a esta importante área da computação atual para os alunos iniciantes. Ambos os grupos têm a ganhar com este trabalho cooperativo entre os alunos. A avaliação da atividade será feita calculando a taxa de evasão do minicurso, assim como a qualidade dos trabalhos desenvolvidos e contaremos como uma avaliação dos próprios alunos. Os resultados serão avaliados após o final de cada módulo do minicurso. Entre cada módulo ensinado, tentaremos melhorar a atividade de modo a atender as deficiências apresentadas ou manter e melhorar as excelências citadas.</p>
+              <figure class="foto-petiano-atividade">
+                  <img src="../img/petianos/julio.jpg" title="Júlio Martins" class="img-circle">
+              </figure>
+          </center>
+
+      </section>
+  <!--Fim Section Atividade-->
+
+	<div th:include="fragments/footer"></div> 
+
+  	<!--Import jQuery before materialize.js-->
+	<script th:src="@{webjars/jquery/jquery.js}"></script>
+	<script th:src="@{webjars/materializecss/js/materialize.js}"></script>
+    
+    <script th:src="@{js/init.js}"></script>
+
+  <script>
+  $('.dropdown-button').dropdown({
+    inDuration: 300,
+    outDuration: 190,
+    constrainWidth: false, // Does not change width of dropdown to that of the activator
+    hover: true, // Activate on hover
+    gutter: 0, // Spacing from edge
+    belowOrigin: false, // Displays dropdown below the button
+    alignment: 'left', // Displays dropdown with edge aligned to the left of button
+    stopPropagation: false // Stops event propagation
+  }
+);
+  </script>
+
+  <script>
+  //Diz para o navegador o que será carregado no momento em que a página é acessada.
+jQuery("document").ready(function($){
+
+  //Elemento que vai receber os eventos.
+  var nav = $('.white');
+
+  //Ao rolar a página, a função será executada.
+  $(window).scroll(function () {
+      //Se o tamanho da parte rolada for maior que 136px (pixels) ->
+      if ($(this).scrollTop() > 136) {
+          nav.addClass("scrolled_menu"); //Aplica a classe scrolled_menu no elemento .menu
+      } else {
+          nav.removeClass("scrolled_menu"); //Remove a classe scrolled_menu no elemento .menu
+      }
+  });
+
+});
+
+  </script>
+
+  </body>
+</html>
