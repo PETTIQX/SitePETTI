@@ -95,7 +95,6 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
             <div class="row">
                 <div class="col s12 center">
                     <h4 class="center titulo_secao">Atividades</h4>
-                    <hr/>
                     <br/>
                     <!-- Linha de separação -->
                     <div id="container-atividades center">
@@ -182,7 +181,6 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
             <div class="row">
                 <div class="col s12 center">
                     <h4 class="center titulo_secao">Integrantes</h4>
-                    <hr/>
                     <!-- Linha de separação -->
                     <div id="container-membros center">
                         <div class="col s12 center">
@@ -192,56 +190,17 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                                 </figure>
                             </div>
                         </div>
+                        
                         <br/>
 
-                        <div class="col s6 m3 l3">
+                        <div th:each="petiano : ${petianos}" class="col s6 m3 l3">
                             <div class="membro">
                                 <figure class="icone-integrante">
-                                    <a href="#modal"><img class="circle reponsive-img" src="img/tiago.jpeg" title="Tiago Nascimento"/></a>
+                                    <a th:href="@{#modal}"><img class="circle reponsive-img" th:src="@{img/fotoCaricatura/{foto}(foto=${petiano.fotoCaricatura})}" th:title="${petiano.nome}"/></a>
                                 </figure>
                             </div>
                         </div>
 
-                        <div class="col s6 m3 l3">
-                            <div class="membro">
-                                <figure class="icone-integrante">
-                                    <a href="#modal"><img class="circle reponsive-img" src="img/micaele.jpeg" title="Micaele Vieira"/></a>
-                                </figure>
-                            </div>
-                        </div>
-
-                        <div class="col s6 m3 l3">
-                            <div class="membro">
-                                <figure class="icone-integrante">
-                                    <a href="#modal"><img class="circle reponsive-img" src="img/julio.jpeg" title="Júlio Serafim"/></a>
-                                </figure>
-                            </div>
-                        </div>
-
-                        <div class="col s6 m3 l3">
-                            <div class="membro">
-                                <figure class="icone-integrante">
-                                    <a href="#modal"><img class="circle reponsive-img" src="img/camila.jpeg" title="Camila Leal"/></a>
-                                </figure>
-                            </div>
-                        </div>
-
-
-                        <div class="col s6 m3 l3">
-                            <div class="membro">
-                                <figure class="icone-integrante">
-                                    <a href="#modal"><img class="circle reponsive-img" src="img/jordy.jpeg" title="Jordy Ferreira"/></a>
-                                </figure>
-                            </div>
-                        </div>
-
-                        <div class="col s6 m3 l3">
-                            <div class="membro">
-                                <figure class="icone-integrante">
-                                    <a href="#modal"><img class="circle reponsive-img" src="img/raul.jpeg" title="Raul de Araújo"/></a>
-                                </figure>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

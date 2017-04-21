@@ -2,24 +2,36 @@ package br.ufc.quixada.petti.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Petiano {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private String nome;
 	private String email;
 	private String linkLattes;
+	private String fotoCaricatura;
+	private String fotoReal;
 	private String senha;
 	
-	//private List<Atividade> atividades;
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(
+			name = "petiano_atividade",
+			joinColumns = {@JoinColumn(name="atividade_id")},
+			inverseJoinColumns = {@JoinColumn(name="petiano_id")})
+	private List<Atividade> atividades;
 	
 	public Long getId() {
 		return id;
@@ -51,11 +63,23 @@ public class Petiano {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	/*public List<Atividade> getAtividades() {
+	public String getFotoCaricatura() {
+		return fotoCaricatura;
+	}
+	public void setFotoCaricatura(String fotoCaricatura) {
+		this.fotoCaricatura = fotoCaricatura;
+	}
+	public String getFotoReal() {
+		return fotoReal;
+	}
+	public void setFotoReal(String fotoReal) {
+		this.fotoReal = fotoReal;
+	}
+	public List<Atividade> getAtividades() {
 		return atividades;
 	}
 	public void setAtividades(List<Atividade> atividades) {
 		this.atividades = atividades;
-	}*/
+	}
 	
 }
