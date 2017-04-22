@@ -25,9 +25,27 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 
 </head>
 
-<body>
+<body th:background="@{img/background2.jpg}">
 
+	<div class="card-panel centered-panel" style="width:60%; padding:50px;">
+    	<div class="center">
+    		<div class="row">
+    			<img th:src="@{img/logo.png}" width="300"/>
+    		</div>
+    		<div class="row">
+	    		<a th:href="@{#}" class="waves-effect waves-light btn blue"><i class="material-icons left">person</i>Petianos</a>
+		    	<a th:href="@{#}" class="waves-effect waves-light btn blue"><i class="material-icons left">perm_identity</i>Tutores</a>
+		    	<a th:href="@{#}" class="waves-effect waves-light btn blue"><i class="material-icons left">share</i>Atividades</a>
+  			</div>
+	    	
+	    </div>
+  	</div>
+
+    <!--Import jQuery before materialize.js-->
+	<script th:src="@{webjars/jquery/jquery.js}"></script>
+	<script th:src="@{webjars/materializecss/js/materialize.js}"></script>
     
+    <script th:src="@{js/init.js}"></script>
 
 </body>
 

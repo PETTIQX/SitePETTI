@@ -1,4 +1,4 @@
-package br.ufc.quixada.petti.servers;
+package br.ufc.quixada.petti.service;
 
 import java.util.List;
 
@@ -18,8 +18,20 @@ public class PetianoService {
 		return petianoRepository.findAll();
 	}
 	
+	public List<Petiano> listActives(){
+		return petianoRepository.findByAtivoOrderByNomeAsc(true);
+	}
+	
 	public Petiano getById(Long id){
 		return petianoRepository.findOne(id);
+	}
+	
+	public Petiano getByEmail(String email){
+		List<Petiano> petianos = petianoRepository.findByEmailLike(email);
+		if(!petianos.isEmpty())
+			return petianos.get(0);
+		else
+			return null;
 	}
 	
 }

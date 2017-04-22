@@ -3,6 +3,7 @@ package br.ufc.quixada.petti.model;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -21,10 +22,14 @@ public class Petiano {
 	
 	private String nome;
 	private String email;
+	private String curso;
 	private String linkLattes;
 	private String fotoCaricatura;
 	private String fotoReal;
 	private String senha;
+	
+	@Column(nullable=false)
+	private boolean ativo;
 	
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(
@@ -50,6 +55,12 @@ public class Petiano {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getCurso() {
+		return curso;
+	}
+	public void setCurso(String curso) {
+		this.curso = curso;
 	}
 	public String getLinkLattes() {
 		return linkLattes;
@@ -80,6 +91,12 @@ public class Petiano {
 	}
 	public void setAtividades(List<Atividade> atividades) {
 		this.atividades = atividades;
+	}
+	public boolean isAtivo() {
+		return ativo;
+	}
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
 	
 }

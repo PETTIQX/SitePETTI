@@ -29,11 +29,27 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 
     
 	<div th:include="fragments/navbar"></div>
-
+	
+	<!-- Modal Egressos -->
+	<div th:each="petiano : ${petianos}" th:id="${'modal' + petiano.id}" class="modal modal-fixed-footer">
+    	<div class="modal-content center">
+        	<figure class="icone-integrante">
+        		<img class="circle reponsive-img" th:src="@{img/fotoCaricatura/{foto}(foto=${petiano.fotoCaricatura})}" th:title="${petiano.nome}"/>
+        	</figure>
+        	<br/>
+        	<h5 class="center" th:text="${petiano.nome}"></h5>
+        	<p th:inline="text"><b>Curso: </b>[[${petiano.curso}]]</p>
+        	<p th:inline="text"><b>E-mail: </b>[[${petiano.email}]]</p>
+        	<p th:inline="text"><b>Lattes: </b>[[${petiano.linkLattes}]]</p>
+       	</div>
+        <div class="modal-footer">
+      		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>
+    	</div>
+ 	</div>
+    <!-- Fim modal egressos -->
+	
+	
     <!-- Parallax começa aqui -->
-
-
-
     <!-- Sobre -->
     <section class="sobre indigo accent-1" id="sobre">
         <div class="container indigo accent-1" id="sobre">
@@ -85,7 +101,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                 </div>
             </div>
         </div>
-        <div class="parallax"><img src="img/background2.jpg" alt="Unsplashed background img 2"/></div>
+        <div class="parallax"><img th:src="@{img/background2.jpg}" alt="Unsplashed background img 2"/></div>
     </div>
     <!--Fim Banner-->
 
@@ -171,7 +187,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                 </div>
             </div>
         </div>
-        <div class="parallax"><img src="img/background2.jpg" alt="Unsplashed background img 2"/></div>
+        <div class="parallax"><img th:src="@{img/background2.jpg}" alt="Unsplashed background img 2"/></div>
     </div>
     <!-- Fim Banner -->
 
@@ -186,7 +202,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                         <div class="col s12 center">
                             <div class="tutor center">
                                 <figure class="icone-integrante">
-                                    <a href="#modal"><img class="circle reponsive-img" src="img/carla.jpeg" title="Carla Ilane"/></a>
+                                    <a href="#modal"><img class="circle reponsive-img" th:src="@{img/carla.jpeg}" title="Carla Ilane"/></a>
                                 </figure>
                             </div>
                         </div>
@@ -196,7 +212,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                         <div th:each="petiano : ${petianos}" class="col s6 m3 l3">
                             <div class="membro">
                                 <figure class="icone-integrante">
-                                    <a th:href="@{#modal}"><img class="circle reponsive-img" th:src="@{img/fotoCaricatura/{foto}(foto=${petiano.fotoCaricatura})}" th:title="${petiano.nome}"/></a>
+                                    <a th:href="@{'#modal' + ${petiano.id}}"><img class="circle reponsive-img" th:src="@{img/fotoCaricatura/{foto}(foto=${petiano.fotoCaricatura})}" th:title="${petiano.nome}"/></a>
                                 </figure>
                             </div>
                         </div>
@@ -217,7 +233,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                 </div>
             </div>
         </div>
-        <div class="parallax"><img src="img/background2.jpg" alt="Unsplashed background img 2"/></div>
+        <div class="parallax"><img th:src="@{img/background2.jpg}" alt="Unsplashed background img 2"/></div>
     </div>
     <!-- Fim Banner -->
 
