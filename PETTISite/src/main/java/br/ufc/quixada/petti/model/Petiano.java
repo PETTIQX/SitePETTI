@@ -20,12 +20,16 @@ public class Petiano {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(nullable=false)
 	private String nome;
+	@Column(nullable=false)
 	private String email;
+	@Column(nullable=false)
 	private String curso;
 	private String linkLattes;
 	private String fotoCaricatura;
 	private String fotoReal;
+	@Column(nullable=false)
 	private String senha;
 	
 	@Column(nullable=false)

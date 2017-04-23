@@ -14,11 +14,11 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
     <!--Import Google Icon Font-->
 	<link th:href="@{http://fonts.googleapis.com/icon?family=Material+Icons}" rel="stylesheet" />
 	<!--Import materialize.css-->
-	<link th:href="@{webjars/materializecss/css/materialize.css}" type="text/css" rel="stylesheet" media="screen,projection" />
+	<link th:href="@{/webjars/materializecss/css/materialize.css}" type="text/css" rel="stylesheet" media="screen,projection" />
     
     <!-- Import our CSS -->
-	<link th:href="@{css/style.css}" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link th:href="@{css/estilo.css}" type="text/css" rel="stylesheet" media="screen,projection" />
+	<link th:href="@{/css/style.css}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link th:href="@{/css/estilo.css}" type="text/css" rel="stylesheet" media="screen,projection" />
     <link rel="shortcut icon" th:href="@{favicon.ico}" />
     
     <script th:src="@{https://use.fontawesome.com/2468e00924.js}"></script>
@@ -34,7 +34,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	<div th:each="petiano : ${petianos}" th:id="${'modal' + petiano.id}" class="modal modal-fixed-footer">
     	<div class="modal-content center">
         	<figure class="icone-integrante">
-        		<img class="circle reponsive-img" th:src="@{img/fotoCaricatura/{foto}(foto=${petiano.fotoCaricatura})}" th:title="${petiano.nome}"/>
+        		<img class="circle reponsive-img" th:src="@{/img/fotoCaricatura/{foto}(foto=${petiano.fotoCaricatura})}" th:title="${petiano.nome}"/>
         	</figure>
         	<br/>
         	<h5 class="center" th:text="${petiano.nome}"></h5>
@@ -62,7 +62,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                     <div class="col s12 m4">
                         <div class="icon-block">
                             <figure class="icone-inicio">
-                                <img class="responsive-img" src="img/icones/ensino.png" alt="Pesquisa"/>
+                                <img class="responsive-img" th:src="@{/img/icones/ensino.png}" alt="Pesquisa"/>
                             </figure>
                             <h5 class="center">Ensino</h5>
                             <p class="center"> Projetos e atividades para melhorar as graduações do campus da UFC em Quixadá.</p>
@@ -71,7 +71,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                     <div class="col s12 m4">
                         <div class="icon-block">
                             <figure class="icone-inicio">
-                                <img class="responsive-img" src="img/icones/pesquisa.png" alt="Ensino"/>
+                                <img class="responsive-img" th:src="@{/img/icones/pesquisa.png}" alt="Ensino"/>
                             </figure>
                             <h5 class="center">Pesquisa</h5>
                             <p class="center">Nas áreas de Design Digital, Engenharia de Software, Ciência da Computação, Engenharia da Computação, Sistemas de Informação e Redes de Computadores.</p>
@@ -80,7 +80,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                     <div class="col s12 m4">
                         <div class="icon-block">
                             <figure class="icone-inicio extensao">
-                                <img class="responsive-img" src="img/icones/extensao.png" alt="Extensão"/>
+                                <img class="responsive-img" th:src="@{/img/icones/extensao.png}" alt="Extensão"/>
                             </figure>
                             <h5 class="center">Extensão</h5>
                             <p class="center">Organizamos o FLISoL Quixadá, InfoGirl e Game Night.</p>
@@ -101,7 +101,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                 </div>
             </div>
         </div>
-        <div class="parallax"><img th:src="@{img/background2.jpg}" alt="Unsplashed background img 2"/></div>
+        <div class="parallax"><img th:src="@{/img/background2.jpg}" alt="Unsplashed background img 2"/></div>
     </div>
     <!--Fim Banner-->
 
@@ -118,7 +118,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                         <div class="col s6 m3 l3">
                             <div class="atividade">
                                 <figure class="icone-atividade">
-                                    <a href="#modal"><img class="circle reponsive-img" src="img/flisol.png" title="FLISoL Quixadá"/></a>
+                                    <a href="#modal"><img class="circle reponsive-img" th:src="@{img/flisol.png}" title="FLISoL Quixadá"/></a>
                                 </figure>
                             </div>
                         </div>
@@ -126,7 +126,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                         <div class="col s6 m3 l3">
                             <div class="atividade">
                                 <figure class="icone-integrante">
-                                    <a href="#modal"><img class="circle reponsive-img" src="img/game-night.png" title="GameNight"/></a>
+                                    <a href="#modal"><img class="circle reponsive-img" th:src="@{img/game-night.png}" title="GameNight"/></a>
                                 </figure>
                             </div>
                         </div>
@@ -134,7 +134,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                         <div class="col s6 m3 l3">
                             <div class="atividade">
                                 <figure class="icone-integrante">
-                                    <a href="#modal"><img class="circle reponsive-img" src="img/english-club.png" title="English Club"/></a>
+                                    <a href="#modal"><img class="circle reponsive-img" th:src="@{/img/english-club.png}" title="English Club"/></a>
                                 </figure>
                             </div>
                         </div>
@@ -142,7 +142,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                         <div class="col s6 m3 l3">
                             <div class="membro">
                                 <figure class="icone-integrante">
-                                    <a href="#modal"><img class="circle reponsive-img" src="img/feira-de-cursos.png" title="Feira de Cursos"/></a>
+                                    <a href="#modal"><img class="circle reponsive-img" th:src="@{/img/feira-de-cursos.png}" title="Feira de Cursos"/></a>
                                 </figure>
                             </div>
                         </div>
@@ -151,7 +151,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                         <div class="col s6 m3 l3">
                             <div class="membro">
                                 <figure class="icone-integrante">
-                                    <a href="#modal"><img class="circle reponsive-img" src="img/code-jovem.png" title="Projeto nas escolas"/></a>
+                                    <a href="#modal"><img class="circle reponsive-img" th:src="@{/img/code-jovem.png}" title="Projeto nas escolas"/></a>
                                 </figure>
                             </div>
                         </div>
@@ -159,7 +159,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                         <div class="col s6 m3 l3">
                             <div class="membro">
                                 <figure class="icone-integrante">
-                                    <a href="#modal"><img class="circle reponsive-img" src="img/hackathon.png" title="HACKATHON"/></a>
+                                    <a href="#modal"><img class="circle reponsive-img" th:src="@{/img/hackathon.png}" title="HACKATHON"/></a>
                                 </figure>
                             </div>
                         </div>
@@ -167,7 +167,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                         <div class="col s6 m3 l3">
                             <div class="membro">
                                 <figure class="icone-integrante">
-                                    <a href="#modal"><img class="circle reponsive-img" src="img/recepcao.png" title="Recepção dos calouros"/></a>
+                                    <a href="#modal"><img class="circle reponsive-img" th:src="@{/img/recepcao.png}" title="Recepção dos calouros"/></a>
                                 </figure>
                             </div>
                         </div>
@@ -187,7 +187,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                 </div>
             </div>
         </div>
-        <div class="parallax"><img th:src="@{img/background2.jpg}" alt="Unsplashed background img 2"/></div>
+        <div class="parallax"><img th:src="@{/img/background2.jpg}" alt="Unsplashed background img 2"/></div>
     </div>
     <!-- Fim Banner -->
 
@@ -202,7 +202,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                         <div class="col s12 center">
                             <div class="tutor center">
                                 <figure class="icone-integrante">
-                                    <a href="#modal"><img class="circle reponsive-img" th:src="@{img/carla.jpeg}" title="Carla Ilane"/></a>
+                                    <a href="#modal"><img class="circle reponsive-img" th:src="@{/img/carla.jpeg}" title="Carla Ilane"/></a>
                                 </figure>
                             </div>
                         </div>
@@ -212,7 +212,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                         <div th:each="petiano : ${petianos}" class="col s6 m3 l3">
                             <div class="membro">
                                 <figure class="icone-integrante">
-                                    <a th:href="@{'#modal' + ${petiano.id}}"><img class="circle reponsive-img" th:src="@{img/fotoCaricatura/{foto}(foto=${petiano.fotoCaricatura})}" th:title="${petiano.nome}"/></a>
+                                    <a th:href="@{'#modal' + ${petiano.id}}"><img class="circle reponsive-img" th:src="@{/img/fotoCaricatura/{foto}(foto=${petiano.fotoCaricatura})}" th:title="${petiano.nome}"/></a>
                                 </figure>
                             </div>
                         </div>
@@ -233,17 +233,17 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                 </div>
             </div>
         </div>
-        <div class="parallax"><img th:src="@{img/background2.jpg}" alt="Unsplashed background img 2"/></div>
+        <div class="parallax"><img th:src="@{/img/background2.jpg}" alt="Unsplashed background img 2"/></div>
     </div>
     <!-- Fim Banner -->
 
     <div th:include="fragments/footer"></div>
 
     <!--Import jQuery before materialize.js-->
-	<script th:src="@{webjars/jquery/jquery.js}"></script>
-	<script th:src="@{webjars/materializecss/js/materialize.js}"></script>
+	<script th:src="@{/webjars/jquery/jquery.js}"></script>
+	<script th:src="@{/webjars/materializecss/js/materialize.js}"></script>
     
-    <script th:src="@{js/init.js}"></script>
+    <script th:src="@{/js/init.js}"></script>
 
     <script>
         // DropDown Animação

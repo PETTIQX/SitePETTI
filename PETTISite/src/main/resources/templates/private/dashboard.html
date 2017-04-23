@@ -17,23 +17,26 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	<link th:href="@{webjars/materializecss/css/materialize.css}" type="text/css" rel="stylesheet" media="screen,projection" />
     
     <!-- Import our CSS -->
-	<link th:href="@{css/style.css}" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link th:href="@{css/estilo.css}" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link rel="shortcut icon" th:href="@{favicon.ico}" />
+	<link th:href="@{/css/style.css}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link th:href="@{/css/estilo.css}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="shortcut icon" th:href="@{/favicon.ico}" />
     
     <script th:src="@{https://use.fontawesome.com/2468e00924.js}"></script>
 
 </head>
 
-<body th:background="@{img/background2.jpg}">
+<body th:background="@{/img/background2.jpg}">
 
 	<div class="card-panel centered-panel" style="width:60%; padding:50px;">
     	<div class="center">
     		<div class="row">
-    			<img th:src="@{img/logo.png}" width="300"/>
+    			<img th:src="@{/img/logo.png}" width="300"/>
     		</div>
     		<div class="row">
-	    		<a th:href="@{#}" class="waves-effect waves-light btn blue"><i class="material-icons left">person</i>Petianos</a>
+    			<h5 th:text="${'Bem-vindo, ' + session.petiano.nome}"></h5>
+    		</div>
+    		<div class="row">
+	    		<a th:href="@{/petianos/}" class="waves-effect waves-light btn blue"><i class="material-icons left">person</i>Petianos</a>
 		    	<a th:href="@{#}" class="waves-effect waves-light btn blue"><i class="material-icons left">perm_identity</i>Tutores</a>
 		    	<a th:href="@{#}" class="waves-effect waves-light btn blue"><i class="material-icons left">share</i>Atividades</a>
   			</div>
@@ -42,10 +45,10 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
   	</div>
 
     <!--Import jQuery before materialize.js-->
-	<script th:src="@{webjars/jquery/jquery.js}"></script>
-	<script th:src="@{webjars/materializecss/js/materialize.js}"></script>
+	<script th:src="@{/webjars/jquery/jquery.js}"></script>
+	<script th:src="@{/webjars/materializecss/js/materialize.js}"></script>
     
-    <script th:src="@{js/init.js}"></script>
+    <script th:src="@{/js/init.js}"></script>
 
 </body>
 
