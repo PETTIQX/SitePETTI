@@ -57,4 +57,10 @@ public class MainController {
 		return "redirect:/admin";
 	}
 	
+	@RequestMapping(path="/logout")
+	public String logout(HttpSession session){
+		session.invalidate();
+		return "redirect:/";
+	}
+	
 }
