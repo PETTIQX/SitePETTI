@@ -31,7 +31,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
     	<div class="center">
     		<img th:src="@{img/logo.png}" width="300"/>
 	    </div>
-    	<form class="col s12" th:action="@{/login}">
+    	<form class="col s12" th:action="@{/login}" method="post">
 	      <div class="row">
 	        <div class="input-field col s12">
 	          <input id="email" type="email" name="email" class="validate"/>
