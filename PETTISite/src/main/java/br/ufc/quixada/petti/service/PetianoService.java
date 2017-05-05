@@ -34,4 +34,8 @@ public class PetianoService {
 			return null;
 	}
 	
+	public void savePetiano(Petiano petiano){
+		petianoRepository.save(petiano);
+	}
+	
 }

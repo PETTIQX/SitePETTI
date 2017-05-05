@@ -14,27 +14,92 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
     <!--Import Google Icon Font-->
 	<link th:href="@{http://fonts.googleapis.com/icon?family=Material+Icons}" rel="stylesheet" />
 	<!--Import materialize.css-->
-	<link th:href="@{/webjars/materializecss/css/materialize.css}" type="text/css" rel="stylesheet" media="screen,projection" />
+	<link th:href="@{webjars/materializecss/css/materialize.css}" type="text/css" rel="stylesheet" media="screen,projection" />
     
     <!-- Import our CSS -->
-	<link th:href="@{/css/style.css}" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link th:href="@{/css/estilo.css}" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link rel="shortcut icon" th:href="@{/favicon.ico}" />
+	<link th:href="@{css/style.css}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link th:href="@{css/estilo.css}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="shortcut icon" th:href="@{favicon.ico}" />
     
     <script th:src="@{https://use.fontawesome.com/2468e00924.js}"></script>
 
 </head>
 
-<body th:background="@{/img/background2.jpg}">
+<body th:background="@{img/background2.jpg}">
 
+    <div class="card-panel centered-panel" style="width:500px;">
+    	<div class="center">
+    		<img th:src="@{img/logo.png}" width="300"/>
+	    </div>
+    	<form class="col s12" th:action="@{/petianos/cadastrar}" method="post">
+	      <div class="row">
+	        <div class="input-field col s12">
+	          <input id="nome" type="text" name="nome" class="validate"/>
+	          <label for="nome">Nome</label>
+	        </div>
+	      </div>
+   	      <div class="row">
+	        <select name="curso">
+		      <option value="" disabled="disabled" selected="selected">Selecione o curso</option>
+		      <option value="Sistemas de Informação">Sistemas de Informação</option>
+		      <option value="Redes de Computadores">Redes de Computadores</option>
+		      <option value="Ciência da Computação">Ciência da Computação</option>
+		      <option value="Engenharia de Software">Engenharia de Software</option>
+		      <option value="Engenharia de Computação">Engenharia de Computação</option>
+		      <option value="Design Digital">Design Digital</option>
+		    </select>
+		    <label>Curso</label>
+	      </div>
+	      <div class="row">
+	        <div class="input-field col s12">
+	          <input id="linkLattes" type="text" name="linkLattes" class="validate"/>
+	          <label for="linkLattes">Link para Lattes</label>
+	        </div>
+	      </div>
+	      <div class="row">
+	        <div class="input-field col s12">
+	          <input id="email" name="email" type="email" class="validate"/>
+	          <label for="email">Email</label>
+	        </div>
+	      </div>
+	      <div class="row">
+	        <div class="input-field col s12">
+	          <input id="password" name="senha" type="password" class="validate"/>
+	          <label for="password">Senha</label>
+	        </div>
+	      </div>
+	      <div class="row">
+	        <div class="input-field col s12">
+	          <input id="password" name="confirmaSenha" type="password" class="validate"/>
+	          <label for="password">Confirmar Senha</label>
+	        </div>
+	      </div>
+	      <div class="row">
+	      	<div class="card-panel red white-text center" th:if="${erro != null}" th:text="${erro}"></div>
+	      </div>
+	      <div class="row center">
+	      	 <div class="input-field col s12">
+	        	<button class="pull-left waves-effect waves-light btn red" name="action" value="cancelar">Cancelar</button>
+	        	<button class="pull-right waves-effect waves-light btn blue" name="action" value="cadastrar">Cadastrar</button>
+	      	</div>
+	      </div>
+	    </form>
+  	</div>
 	
 
-    <!--Import jQuery before materialize.js-->
-	<script th:src="@{/webjars/jquery/jquery.js}"></script>
-	<script th:src="@{/webjars/materializecss/js/materialize.js}"></script>
+	<!--Import jQuery before materialize.js-->
+	<script th:src="@{webjars/jquery/jquery.js}"></script>
+	<script th:src="@{webjars/materializecss/js/materialize.js}"></script>
     
-    <script th:src="@{/js/init.js}"></script>
-
+    <script th:src="@{js/init.js}"></script>
+	
+	
+	<script>
+	 $(document).ready(function() {
+		$('select').material_select();
+	 });
+	</script>
+	
 </body>
 
 </html>

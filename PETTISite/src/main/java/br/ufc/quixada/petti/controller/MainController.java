@@ -63,4 +63,9 @@ public class MainController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping(path="/cadastro")
+	public String cadastro(HttpSession session){
+		return "private/petianos/cadastro";
+	}
+	
 }
