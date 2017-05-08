@@ -31,10 +31,11 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 		<table class="card-panel centered-panel">
 	        <thead>
 	          <tr>
+	          	  <th><a th:href="@{/dashboard}" class="waves-effect waves-light btn blue"><i class="material-icons left">skip_previous</i>Voltar</a></th>
 	              <th>Foto</th>
 	              <th>Nome</th>
 	              <th>Ação</th>
-	               <td><a th:href="@{/cadastro}" class="waves-effect waves-light btn blue"><i class="material-icons left">settings</i>Cadastrar</a></td>
+	              <th><a th:href="@{/cadastro}" class="waves-effect waves-light btn blue"><i class="material-icons left">settings</i>Cadastrar</a></th>
 	          </tr>
 	        </thead>
 
@@ -42,10 +43,13 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	          <tr th:each="petiano : ${petianos}">
 	            <td><img th:src="@{/img/fotoCaricatura/{foto}(foto=${petiano.fotoCaricatura})}" alt="" width="50" class="circle responsive-img"/></td>
 	            <td th:text="${petiano.nome}"></td>
-	            <td><a class="waves-effect waves-light btn blue"><i class="material-icons left">settings</i>Editar</a></td>
+	            <td>
+		            <a class="waves-effect waves-light btn blue"><i class="material-icons left">settings</i>Editar</a>
+		            <br/>
+		            <a th:href="@{/petianos/excluir/{id}(id=${petiano.id})}" class="waves-effect waves-light btn red"><i class="material-icons left">delete</i>Excluir</a>
+		       	</td>
 	          </tr>
-	        </tbody>
-	        <a href="#" onclick="javascript:window.history.back();" class="waves-effect waves-light btn blue"><i class="material-icons left">skip_previous</i>Voltar</a>
+	        </tbody> 
       </table>	
 	</div>
 	 

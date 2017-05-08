@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.ufc.quixada.petti.model.Petiano;
 import br.ufc.quixada.petti.service.PetianoService;
+import br.ufc.quixada.petti.util.CriptUtil;
 
 @Controller
 public class MainController {
@@ -40,13 +41,20 @@ public class MainController {
 		return "private/index";
 	}
 	
+	@RequestMapping(path="/dashboard")
+	public String dashboard(HttpSession session){
+		if(session.getAttribute("petiano") == null)
+			return "redirect:/";
+		return "private/dashboard";
+	}
+	
 	@RequestMapping(path="/login", method=RequestMethod.POST)
 	public String login(String email, String senha, HttpSession session, RedirectAttributes redAttrs){
 		Petiano petiano = petianoService.getByEmail(email);
 		if(petiano != null){
-			if(petiano.getSenha().equals(senha)){
+			if(petiano.getSenha().equals(CriptUtil.hashSenha(senha))){
 				session.setAttribute("petiano", petiano);
-				return "private/dashboard";
+				return "redirect:/dashboard";
 			}
 			else{
 				redAttrs.addFlashAttribute("erro", "Senha incorreta.");

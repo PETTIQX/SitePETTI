@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.ufc.quixada.petti.model.Petiano;
 import br.ufc.quixada.petti.service.PetianoService;
+import br.ufc.quixada.petti.util.CriptUtil;
 
 @Controller
 @RequestMapping(path="/petianos")
@@ -35,6 +37,7 @@ public class PetianoController {
 	@RequestMapping(path="/cadastrar", method=RequestMethod.POST, params="action=cadastrar")		
 	public String cadastrar(Petiano petiano, @RequestParam(name="confirmaSenha") String confirmaSenha, RedirectAttributes redAttrs){
 		if(petiano.getSenha().equals(confirmaSenha)){
+			petiano.setSenha(CriptUtil.hashSenha(petiano.getSenha()));
 			petianoService.savePetiano(petiano);
 			return "redirect:/petianos/";
 		}else{
@@ -45,6 +48,12 @@ public class PetianoController {
 	
 	@RequestMapping(path="/cadastrar", method=RequestMethod.POST, params="action=cancelar")		
 	public String cancelarCadastro(){
+		return "redirect:/petianos/";
+	}
+	
+	@RequestMapping(path="/excluir/{id}")
+	public String excluirPetiano(@PathVariable("id") Long id){
+		petianoService.deletePetiano(id);
 		return "redirect:/petianos/";
 	}
 	

@@ -38,4 +38,8 @@ public class PetianoService {
 		petianoRepository.save(petiano);
 	}
 	
+	public void deletePetiano(Long id){
+		petianoRepository.delete(id);
+	}
+	
 }

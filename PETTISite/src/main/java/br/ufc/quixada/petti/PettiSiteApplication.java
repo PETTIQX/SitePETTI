@@ -8,5 +8,6 @@ public class PettiSiteApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PettiSiteApplication.class, args);
+		
 	}
 }
