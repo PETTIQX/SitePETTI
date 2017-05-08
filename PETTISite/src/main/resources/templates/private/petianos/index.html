@@ -26,34 +26,40 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 </head>
 
 <body th:background="@{/img/background2.jpg}">
-	
-	<div class="container">
-		<table class="card-panel centered-panel">
-	        <thead>
-	          <tr>
-	          	  <th><a th:href="@{/dashboard}" class="waves-effect waves-light btn blue"><i class="material-icons left">skip_previous</i>Voltar</a></th>
-	              <th>Foto</th>
-	              <th>Nome</th>
-	              <th>Ação</th>
-	              <th><a th:href="@{/cadastro}" class="waves-effect waves-light btn blue"><i class="material-icons left">settings</i>Cadastrar</a></th>
-	          </tr>
-	        </thead>
 
-	        <tbody>
-	          <tr th:each="petiano : ${petianos}">
-	            <td><img th:src="@{/img/fotoCaricatura/{foto}(foto=${petiano.fotoCaricatura})}" alt="" width="50" class="circle responsive-img"/></td>
-	            <td th:text="${petiano.nome}"></td>
-	            <td>
-		            <a class="waves-effect waves-light btn blue"><i class="material-icons left">settings</i>Editar</a>
-		            <br/>
-		            <a th:href="@{/petianos/excluir/{id}(id=${petiano.id})}" class="waves-effect waves-light btn red"><i class="material-icons left">delete</i>Excluir</a>
-		       	</td>
-	          </tr>
-	        </tbody> 
-      </table>	
-	</div>
-	 
-    <!--Import jQuery before materialize.js-->
+	<table class="card-panel centered-panel">
+		<thead>
+			<tr>
+				<th><a th:href="@{/dashboard}"
+					class="waves-effect waves-light btn blue"><i
+						class="material-icons left">skip_previous</i>Voltar</a></th>
+				<th>Foto</th>
+				<th>Nome</th>
+				<th>Ação</th>
+				<th><a th:href="@{/cadastro}"
+					class="waves-effect waves-light btn blue"><i
+						class="material-icons left">add</i>Cadastrar</a></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr th:each="petiano : ${petianos}">
+				<td></td>
+				<td><img
+					th:src="@{/img/fotoCaricatura/{foto}(foto=${petiano.fotoCaricatura})}"
+					alt="" width="50" class="circle responsive-img" /></td>
+				<td th:text="${petiano.nome}"></td>
+				<td><a class="waves-effect waves-light btn blue"><i
+						class="material-icons left">settings</i>Editar</a> <a
+					th:href="@{/petianos/excluir/{id}(id=${petiano.id})}"
+					class="waves-effect waves-light btn red"><i
+						class="material-icons left">delete</i>Excluir</a></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<!--Import jQuery before materialize.js-->
 	<script th:src="@{/webjars/jquery/jquery.js}"></script>
 	<script th:src="@{/webjars/materializecss/js/materialize.js}"></script>
     

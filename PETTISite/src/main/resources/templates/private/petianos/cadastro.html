@@ -31,7 +31,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
     	<div class="center">
     		<img th:src="@{img/logo.png}" width="300"/>
 	    </div>
-    	<form class="col s12" th:action="@{/petianos/cadastrar}" method="post">
+    	<form class="col s12" th:action="@{/petianos/cadastrar}" enctype="multipart/form-data" method="post">
 	      <div class="row">
 	        <div class="input-field col s12">
 	          <input id="nome" type="text" name="nome" class="validate"/>
@@ -73,6 +73,28 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	          <input id="password" name="confirmaSenha" type="password" class="validate"/>
 	          <label for="password">Confirmar Senha</label>
 	        </div>
+	      </div>
+	      <div class="row">
+	      	<div class="file-field input-field">
+		      <div class="btn blue">
+		        <span>Caricatura</span>
+		        <input type="file" name="fotoCaricaturaFile" />
+		      </div>
+		      <div class="file-path-wrapper">
+		        <input class="file-path validate" type="text" />
+		      </div>
+		    </div>
+	      </div>
+	      <div class="row">
+	      	<div class="file-field input-field">
+		      <div class="btn blue">
+		        <span>Foto</span>
+		        <input type="file" name="fotoRealFile" />
+		      </div>
+		      <div class="file-path-wrapper">
+		        <input class="file-path validate" type="text" />
+		      </div>
+		    </div>
 	      </div>
 	      <div class="row">
 	      	<div class="card-panel red white-text center" th:if="${erro != null}" th:text="${erro}"></div>
