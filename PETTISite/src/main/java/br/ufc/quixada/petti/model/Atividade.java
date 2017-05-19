@@ -22,7 +22,7 @@ public class Atividade {
 	private String icone;
 	
 	@ManyToMany(mappedBy="atividades", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	private List<Petiano> petianos;
+	private List<Usuario> petianos;
 	
 	public Long getId() {
 		return id;
@@ -48,10 +48,10 @@ public class Atividade {
 	public void setIcone(String icone) {
 		this.icone = icone;
 	}
-	public List<Petiano> getPetianos() {
+	public List<Usuario> getPetianos() {
 		return petianos;
 	}
-	public void setPetianos(List<Petiano> petianos) {
+	public void setPetianos(List<Usuario> petianos) {
 		this.petianos = petianos;
 	}
 	

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import br.ufc.quixada.petti.model.Petiano;
+import br.ufc.quixada.petti.model.Usuario;
 import br.ufc.quixada.petti.service.PetianoService;
 import br.ufc.quixada.petti.util.CriptUtil;
 
@@ -25,7 +25,7 @@ public class MainController {
 	@RequestMapping(path="/")
 	public String index(Model model){
 		
-		List<Petiano> petianos = petianoService.listActives();
+		List<Usuario> petianos = petianoService.listActives();
 		model.addAttribute("petianos", petianos);
 		
 		return "index";
@@ -41,20 +41,30 @@ public class MainController {
 		return "private/index";
 	}
 	
-	@RequestMapping(path="/dashboard")
-	public String dashboard(HttpSession session){
-		if(session.getAttribute("petiano") == null)
+	@RequestMapping(path="/dashboard-petiano")
+	public String dashboardPetiano(HttpSession session){
+		if(session.getAttribute("usuario") == null)
 			return "redirect:/";
-		return "private/dashboard";
+		return "private/petianos/dashboard";
+	}
+	
+	@RequestMapping(path="/dashboard-tutor")
+	public String dashboardTutor(HttpSession session){
+		if(session.getAttribute("usuario") == null)
+			return "redirect:/";
+		return "private/tutores/dashboard";
 	}
 	
 	@RequestMapping(path="/login", method=RequestMethod.POST)
 	public String login(String email, String senha, HttpSession session, RedirectAttributes redAttrs){
-		Petiano petiano = petianoService.getByEmail(email);
-		if(petiano != null){
-			if(petiano.getSenha().equals(CriptUtil.hashSenha(senha))){
-				session.setAttribute("petiano", petiano);
-				return "redirect:/dashboard";
+		Usuario usuario = petianoService.getByEmail(email);
+		if(usuario != null){
+			if(usuario.getSenha().equals(CriptUtil.hashSenha(senha))){
+				session.setAttribute("usuario", usuario);
+				if(usuario.getTipoUsuario().equals("petiano"))
+					return "redirect:/dashboard-petiano";
+				else if(usuario.getTipoUsuario().equals("tutor"))
+					return "redirect:/dashboard-tutor";
 			}
 			else{
 				redAttrs.addFlashAttribute("erro", "Senha incorreta.");

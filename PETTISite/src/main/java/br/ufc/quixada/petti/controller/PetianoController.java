@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import br.ufc.quixada.petti.model.Petiano;
+import br.ufc.quixada.petti.model.Usuario;
 import br.ufc.quixada.petti.service.PetianoService;
 import br.ufc.quixada.petti.service.StorageFileService;
 import br.ufc.quixada.petti.util.CriptUtil;
@@ -30,7 +30,7 @@ public class PetianoController {
 	
 	@RequestMapping(path="/")
 	public String index(Model model){
-		List<Petiano> petianos = petianoService.listAll();
+		List<Usuario> petianos = petianoService.listAll();
 		model.addAttribute("petianos", petianos);
 		return "private/petianos/index";
 	}
@@ -40,8 +40,13 @@ public class PetianoController {
 		return "private/petianos/cadastro";
 	}
 	
+	@RequestMapping(path="/edicao")
+	public String edicao(){
+		return "private/petianos/edicao";
+	}
+	
 	@RequestMapping(path="/cadastrar", method=RequestMethod.POST, params="action=cadastrar")		
-	public String cadastrar(Petiano petiano, @RequestParam(name="confirmaSenha") String confirmaSenha, 
+	public String cadastrar(Usuario petiano, @RequestParam(name="confirmaSenha") String confirmaSenha, 
 			@RequestParam("fotoCaricaturaFile") MultipartFile fotoCaricatura, 
 			@RequestParam("fotoRealFile") MultipartFile fotoReal, 
 			RedirectAttributes redAttrs){
@@ -85,7 +90,7 @@ public class PetianoController {
 	
 	@RequestMapping(path="/excluir/{id}")
 	public String excluirPetiano(@PathVariable("id") Long id){
-		Petiano petiano = petianoService.getById(id);
+		Usuario petiano = petianoService.getById(id);
 		
 		String path = PetianoController.class.getClassLoader().getResource("static/img/").getPath();
 		String fotoCaricaturaFileName = petiano.getFotoCaricatura();
