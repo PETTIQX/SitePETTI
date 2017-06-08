@@ -30,14 +30,33 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
     
 	<div th:include="fragments/navbar"></div>
 	
-	<!-- Modal Egressos -->
-	<div th:each="petiano : ${petianos}" th:id="${'modal' + petiano.id}" class="modal modal-fixed-footer">
+	<!-- Modais -->
+	<div th:each="tutor : ${tutores}" th:id="${'modalTutor' + tutor.id}" class="modal modal-fixed-footer">
     	<div class="modal-content center">
-        	<figure class="icone-integrante" th:if="${petiano.fotoCaricatura} != null">
-        		<img class="circle reponsive-img" th:src="@{/img/fotoCaricatura/{foto}(foto=${petiano.fotoCaricatura})}" th:title="${petiano.nome}"/>
+        	<figure class="icone-integrante" th:if="${tutor.fotoReal} != null">
+        		<img class="circle reponsive-img" th:src="@{/img/fotoReal/{foto}(foto=${tutor.fotoReal})}" th:title="${tutor.nome}"/>
         	</figure>
-        	<figure class="icone-integrante" th:if="${petiano.fotoCaricatura} == null">
-            	<a th:href="@{'#modal' + ${petiano.id}}"><img class="circle reponsive-img" th:src="@{/img/person.png}" th:title="${petiano.nome}"/></a>
+        	<figure class="icone-integrante" th:if="${tutor.fotoReal} == null">
+            	<img class="circle reponsive-img" th:src="@{/img/person.png}" th:title="${tutor.nome}"/>
+            </figure>
+        	
+        	<br/>
+        	<h5 class="center" th:text="${tutor.nome}"></h5>
+        	<p th:inline="text"><b>E-mail: </b>[[${tutor.email}]]</p>
+        	<p th:inline="text"><b>Lattes: </b>[[${tutor.linkLattes}]]</p>
+       	</div>
+        <div class="modal-footer">
+      		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>
+    	</div>
+ 	</div>
+	
+	<div th:each="petiano : ${petianos}" th:id="${'modalPetiano' + petiano.id}" class="modal modal-fixed-footer">
+    	<div class="modal-content center">
+        	<figure class="icone-integrante" th:if="${petiano.fotoReal} != null">
+        		<img class="circle reponsive-img" th:src="@{/img/fotoReal/{foto}(foto=${petiano.fotoReal})}" th:title="${petiano.nome}"/>
+        	</figure>
+        	<figure class="icone-integrante" th:if="${petiano.fotoReal} == null">
+            	<img class="circle reponsive-img" th:src="@{/img/person.png}" th:title="${petiano.nome}"/>
             </figure>
         	
         	<br/>
@@ -50,7 +69,26 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>
     	</div>
  	</div>
-    <!-- Fim modal egressos -->
+ 	
+ 	
+ 	<div th:each="atividade : ${atividades}" th:id="${'modalAtividade' + atividade.id}" class="modal modal-fixed-footer">
+    	<div class="modal-content center">
+        	<figure class="icone-integrante" th:if="${atividade.icone} != null">
+        		<img class="circle reponsive-img" th:src="@{/img/iconesAtividades/{foto}(foto=${atividade.icone})}" th:title="${atividade.nome}"/>
+        	</figure>
+        	<figure class="icone-integrante" th:if="${atividade.icone} == null">
+            	<img class="circle reponsive-img" th:src="@{/img/activity.png}" th:title="${atividade.nome}"/>
+            </figure>
+        	
+        	<br/>
+        	<h5 class="center" th:text="${atividade.nome}"></h5>
+        	<p th:inline="text"><b>Descrição: </b>[[${atividade.descricao}]]</p>
+       	</div>
+        <div class="modal-footer">
+      		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>
+    	</div>
+ 	</div>
+    <!-- Fim modais -->
 	
 	
     <!-- Parallax começa aqui -->
@@ -115,66 +153,20 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
             <div class="row">
                 <div class="col s12 center">
                     <h4 class="center titulo_secao">Atividades</h4>
-                    <br/>
                     <!-- Linha de separação -->
                     <div id="container-atividades center">
-
-                        <div class="col s6 m3 l3">
-                            <div class="atividade">
-                                <figure class="icone-atividade">
-                                    <a href="#modal"><img class="circle reponsive-img" th:src="@{img/flisol.png}" title="FLISoL Quixadá"/></a>
-                                </figure>
-                            </div>
-                        </div>
-
-                        <div class="col s6 m3 l3">
-                            <div class="atividade">
-                                <figure class="icone-integrante">
-                                    <a href="#modal"><img class="circle reponsive-img" th:src="@{img/game-night.png}" title="GameNight"/></a>
-                                </figure>
-                            </div>
-                        </div>
-
-                        <div class="col s6 m3 l3">
-                            <div class="atividade">
-                                <figure class="icone-integrante">
-                                    <a href="#modal"><img class="circle reponsive-img" th:src="@{/img/english-club.png}" title="English Club"/></a>
-                                </figure>
-                            </div>
-                        </div>
-
-                        <div class="col s6 m3 l3">
-                            <div class="membro">
-                                <figure class="icone-integrante">
-                                    <a href="#modal"><img class="circle reponsive-img" th:src="@{/img/feira-de-cursos.png}" title="Feira de Cursos"/></a>
-                                </figure>
-                            </div>
-                        </div>
-
-
-                        <div class="col s6 m3 l3">
-                            <div class="membro">
-                                <figure class="icone-integrante">
-                                    <a href="#modal"><img class="circle reponsive-img" th:src="@{/img/code-jovem.png}" title="Projeto nas escolas"/></a>
-                                </figure>
-                            </div>
-                        </div>
-
-                        <div class="col s6 m3 l3">
-                            <div class="membro">
-                                <figure class="icone-integrante">
-                                    <a href="#modal"><img class="circle reponsive-img" th:src="@{/img/hackathon.png}" title="HACKATHON"/></a>
-                                </figure>
-                            </div>
-                        </div>
-
-                        <div class="col s6 m3 l3">
-                            <div class="membro">
-                                <figure class="icone-integrante">
-                                    <a href="#modal"><img class="circle reponsive-img" th:src="@{/img/recepcao.png}" title="Recepção dos calouros"/></a>
-                                </figure>
-                            </div>
-                        </div>
+						<div th:each="atividade : ${atividades}">
+	                    	<div class="col s6 m3 l3">
+	                            <div class="atividade">
+	                                <figure class="icone-integrante" th:if="${atividade.icone} != null">
+	                                    <a th:href="@{'#modalAtividade' + ${atividade.id}}"><img class="circle reponsive-img" th:src="@{/img/iconesAtividades/{icone}(icone=${atividade.icone})}" th:title="${atividade.nome}"/></a>
+	                                </figure>
+	                                <figure class="icone-integrante" th:if="${atividade.icone} == null">
+	                                    <a th:href="@{'#modalAtividade' + ${atividade.id}}"><img class="circle reponsive-img" th:src="@{/img/activity.png}" th:title="${atividade.nome}"/></a>
+	                                </figure>
+	                            </div>
+	                      	</div>
+                        </div>                        
                     </div>
                 </div>
             </div>
@@ -198,35 +190,40 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
     <!-- Membros -->
     <section class="membros-class yellow lighten-3" id="membros-atuais">
         <div class="container">
-            <div class="row">
-                <div class="col s12 center">
+       		<div class="row">
+            	<div class="col s12 center">
                     <h4 class="center titulo_secao">Integrantes</h4>
-                    <!-- Linha de separação -->
                     <div id="container-membros center">
-                        <div class="col s12 center">
-                            <div class="tutor center">
-                                <figure class="icone-integrante">
-                                    <a href="#modal"><img class="circle reponsive-img" th:src="@{/img/carla.jpeg}" title="Carla Ilane"/></a>
-                                </figure>
-                            </div>
+                        <div class="row">
+                        	<div th:each="tutor : ${tutores}">
+	                            <div class="membro">
+	                                <figure class="icone-integrante" th:if="${tutor.fotoCaricatura} != null">
+	                                    <a th:href="@{'#modalTutor' + ${tutor.id}}"><img class="circle reponsive-img" th:src="@{/img/fotoCaricatura/{foto}(foto=${tutor.fotoCaricatura})}" th:title="${petiano.nome}"/></a>
+	                                </figure>
+	                                <figure class="icone-integrante" th:if="${tutor.fotoCaricatura} == null">
+	                                    <a th:href="@{'#modalTutor' + ${tutor.id}}"><img class="circle reponsive-img" th:src="@{/img/person.png}" th:title="${tutor.nome}"/></a>
+	                                </figure>
+	                            </div>
+                        	</div>
                         </div>
                         
-                        <br/>
-
-                        <div th:each="petiano : ${petianos}" class="col s6 m3 l3">
-                            <div class="membro">
-                                <figure class="icone-integrante" th:if="${petiano.fotoCaricatura} != null">
-                                    <a th:href="@{'#modal' + ${petiano.id}}"><img class="circle reponsive-img" th:src="@{/img/fotoCaricatura/{foto}(foto=${petiano.fotoCaricatura})}" th:title="${petiano.nome}"/></a>
-                                </figure>
-                                <figure class="icone-integrante" th:if="${petiano.fotoCaricatura} == null">
-                                    <a th:href="@{'#modal' + ${petiano.id}}"><img class="circle reponsive-img" th:src="@{/img/person.png}" th:title="${petiano.nome}"/></a>
-                                </figure>
-                            </div>
-                        </div>
+						<div class="row">
+							<div th:each="petiano : ${petianos}" class="col s6 m3 l3">
+	                            <div class="membro">
+	                                <figure class="icone-integrante" th:if="${petiano.fotoCaricatura} != null">
+	                                    <a th:href="@{'#modalPetiano' + ${petiano.id}}"><img class="circle reponsive-img" th:src="@{/img/fotoCaricatura/{foto}(foto=${petiano.fotoCaricatura})}" th:title="${petiano.nome}"/></a>
+	                                </figure>
+	                                <figure class="icone-integrante" th:if="${petiano.fotoCaricatura} == null">
+	                                    <a th:href="@{'#modalPetiano' + ${petiano.id}}"><img class="circle reponsive-img" th:src="@{/img/person.png}" th:title="${petiano.nome}"/></a>
+	                                </figure>
+	                            </div>
+                        	</div>
+						</div>
+                        
 
                     </div>
                 </div>
-            </div>
+        	</div>
         </div>
     </section>
     <!-- Fim integrantes -->

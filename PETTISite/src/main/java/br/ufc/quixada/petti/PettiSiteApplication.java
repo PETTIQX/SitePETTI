@@ -10,6 +10,6 @@ public class PettiSiteApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PettiSiteApplication.class, args);
-		//System.out.println(CriptUtil.hashSenha("raul"));
+		//System.out.println(CriptUtil.hashSenha("carla"));
 	}
 }

@@ -12,8 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.ufc.quixada.petti.model.Atividade;
+import br.ufc.quixada.petti.model.Petiano;
+import br.ufc.quixada.petti.model.Tutor;
 import br.ufc.quixada.petti.model.Usuario;
+import br.ufc.quixada.petti.service.AtividadeService;
 import br.ufc.quixada.petti.service.PetianoService;
+import br.ufc.quixada.petti.service.TutorService;
+import br.ufc.quixada.petti.service.UsuarioService;
 import br.ufc.quixada.petti.util.CriptUtil;
 
 @Controller
@@ -21,13 +27,21 @@ public class MainController {
 
 	@Autowired
 	private PetianoService petianoService;
+	@Autowired
+	private TutorService tutorService;
+	@Autowired
+	private AtividadeService atividadeService;
+	@Autowired
+	private UsuarioService usuarioService;
 	
 	@RequestMapping(path="/")
 	public String index(Model model){
-		
-		List<Usuario> petianos = petianoService.listActives();
+		List<Petiano> petianos = petianoService.listActives();
+		List<Tutor> tutores = tutorService.listActives();
+		List<Atividade> atividades = atividadeService.listAll();
 		model.addAttribute("petianos", petianos);
-		
+		model.addAttribute("tutores", tutores);
+		model.addAttribute("atividades", atividades);
 		return "index";
 	}
 
@@ -57,7 +71,7 @@ public class MainController {
 	
 	@RequestMapping(path="/login", method=RequestMethod.POST)
 	public String login(String email, String senha, HttpSession session, RedirectAttributes redAttrs){
-		Usuario usuario = petianoService.getByEmail(email);
+		Usuario usuario = usuarioService.getByEmail(email);
 		if(usuario != null){
 			if(usuario.getSenha().equals(CriptUtil.hashSenha(senha))){
 				session.setAttribute("usuario", usuario);

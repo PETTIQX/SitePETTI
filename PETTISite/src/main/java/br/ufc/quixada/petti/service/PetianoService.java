@@ -5,41 +5,34 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.ufc.quixada.petti.model.Petiano;
 import br.ufc.quixada.petti.model.Usuario;
-import br.ufc.quixada.petti.repository.UsuarioRepository;
+import br.ufc.quixada.petti.repository.PetianoRepository;
 
 @Service
-public class PetianoService {
+public class PetianoService{
 
 	@Autowired
-	private UsuarioRepository petianoRepository;
+	private PetianoRepository petianoRepository;
 	
-	public List<Usuario> listAll(){
+	public List<Petiano> listAll(){
 		return petianoRepository.findAll();
 	}
 	
-	public List<Usuario> listActives(){
+	public List<Petiano> listActives(){
 		return petianoRepository.findByAtivoOrderByNomeAsc(true);
 	}
 	
-	public Usuario getById(Long id){
+	public Petiano getById(Long id){
 		return petianoRepository.findOne(id);
 	}
 	
-	public Usuario getByEmail(String email){
-		List<Usuario> petianos = petianoRepository.findByEmailLike(email);
+	public Petiano getByEmail(String email){
+		List<Petiano> petianos = petianoRepository.findByEmailLike(email);
 		if(!petianos.isEmpty())
 			return petianos.get(0);
 		else
 			return null;
-	}
-	
-	public void savePetiano(Usuario petiano){
-		petianoRepository.save(petiano);
-	}
-	
-	public void deletePetiano(Long id){
-		petianoRepository.delete(id);
 	}
 	
 }

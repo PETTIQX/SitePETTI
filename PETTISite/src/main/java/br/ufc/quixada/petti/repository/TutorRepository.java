@@ -7,13 +7,13 @@ import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.ufc.quixada.petti.model.Usuario;
+import br.ufc.quixada.petti.model.Tutor;
 
 @Repository
 @Transactional
-public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
+public interface TutorRepository extends JpaRepository<Tutor, Long>{
 
-	public List<Usuario> findByEmailLike(String email);
-	public List<Usuario> findByAtivoOrderByNomeAsc(boolean ativo);
+	public List<Tutor> findByEmailLike(String email);
+	public List<Tutor> findByAtivoOrderByNomeAsc(boolean ativo);
 	
 }

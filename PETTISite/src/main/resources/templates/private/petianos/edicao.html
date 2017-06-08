@@ -31,7 +31,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
     	<div class="center">
     		<img th:src="@{/img/logo.png}" width="300"/>
 	    </div>
-    	<form class="col s12" th:action="@{/petianos/cadastrar}" enctype="multipart/form-data" method="post">
+    	<form class="col s12" th:action="@{/petianos/editar}" enctype="multipart/form-data" method="post">
 	      <div class="row">
 	        <div class="input-field col s12">
 	          <input id="nome" type="text" name="nome" th:value="${session.usuario.nome}" class="validate"/>
@@ -41,11 +41,11 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
    	      <div class="row">
 	        <select name="curso">
 		      <option value="" disabled="disabled" selected="selected">Selecione o curso</option>
-		      <option value="Sistemas de Informação">Sistemas de Informação</option>
-		      <option value="Redes de Computadores">Redes de Computadores</option>
-		      <option value="Ciência da Computação">Ciência da Computação</option>
-		      <option value="Engenharia de Software">Engenharia de Software</option>
-		      <option value="Engenharia de Computação">Engenharia de Computação</option>
+		      <option value="Sistemas de Informação" th:selected="${session.usuario.curso == 'Sistemas de Informação'}">Sistemas de Informação</option>
+		      <option value="Redes de Computadores" th:selected="${session.usuario.curso == 'Redes de Computadores'}">Redes de Computadores</option>
+		      <option value="Ciência da Computação" th:selected="${session.usuario.curso == 'Ciência da Computação'}">Ciência da Computação</option>
+		      <option value="Engenharia de Software" th:selected="${session.usuario.curso == 'Engenharia de Software'}">Engenharia de Software</option>
+		      <option value="Engenharia de Computação" th:selected="${session.usuario.curso == 'Engenharia de Computação'}">Engenharia de Computação</option>
 		      <option value="Design Digital">Design Digital</option>
 		    </select>
 		    <label>Curso</label>
@@ -65,7 +65,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	      <div class="row">
 	      	<div class="file-field input-field">
 		      <div class="btn blue">
-		        <span>Caricatura</span>
+		        <span>Alterar Caricatura</span>
 		        <input type="file" name="fotoCaricaturaFile" />
 		      </div>
 		      <div class="file-path-wrapper">
@@ -76,7 +76,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	      <div class="row">
 	      	<div class="file-field input-field">
 		      <div class="btn blue">
-		        <span>Foto</span>
+		        <span>Alterar Foto</span>
 		        <input type="file" name="fotoRealFile" />
 		      </div>
 		      <div class="file-path-wrapper">
@@ -85,12 +85,15 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 		    </div>
 	      </div>
 	      <div class="row">
+	      	<a th:href="@{#}" class="waves-effect waves-light btn orange"><i class="material-icons right">lock</i>Alterar Senha</a>
+	      </div>
+	      <div class="row">
 	      	<div class="card-panel red white-text center" th:if="${erro != null}" th:text="${erro}"></div>
 	      </div>
 	      <div class="row center">
 	      	 <div class="input-field col s12">
 	        	<button class="pull-left waves-effect waves-light btn red" name="action" value="cancelar">Cancelar</button>
-	        	<button class="pull-right waves-effect waves-light btn blue" name="action" value="cadastrar">Cadastrar</button>
+	        	<button class="pull-right waves-effect waves-light btn blue" name="action" value="editar">Cadastrar</button>
 	      	</div>
 	      </div>
 	    </form>
