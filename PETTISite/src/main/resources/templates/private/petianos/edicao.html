@@ -85,15 +85,15 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 		    </div>
 	      </div>
 	      <div class="row">
-	      	<a th:href="@{#}" class="waves-effect waves-light btn orange"><i class="material-icons right">lock</i>Alterar Senha</a>
+	      	<a th:href="@{/usuarios/alterar-senha}" class="waves-effect waves-light btn orange"><i class="material-icons right">lock</i>Alterar Senha</a>
 	      </div>
 	      <div class="row">
 	      	<div class="card-panel red white-text center" th:if="${erro != null}" th:text="${erro}"></div>
 	      </div>
 	      <div class="row center">
 	      	 <div class="input-field col s12">
-	        	<button class="pull-left waves-effect waves-light btn red" name="action" value="cancelar">Cancelar</button>
-	        	<button class="pull-right waves-effect waves-light btn blue" name="action" value="editar">Cadastrar</button>
+	        	<button class="pull-right waves-effect waves-light btn blue" name="action" value="editar">Editar</button>
+	      		<button class="pull-left waves-effect waves-light btn red" name="action" value="cancelar">Cancelar</button>
 	      	</div>
 	      </div>
 	    </form>

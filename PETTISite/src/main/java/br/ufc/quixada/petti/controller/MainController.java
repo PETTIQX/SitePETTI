@@ -55,6 +55,15 @@ public class MainController {
 		return "private/index";
 	}
 	
+	@RequestMapping(path="/dashboard")
+	public String dashboard(HttpSession session){
+		Usuario usuario = (Usuario)session.getAttribute("usuario");
+		if(usuario instanceof Petiano){
+			return "redirect:/dashboard-petiano";
+		}
+		return "redirect:/dashboard-tutor";
+	}
+	
 	@RequestMapping(path="/dashboard-petiano")
 	public String dashboardPetiano(HttpSession session){
 		if(session.getAttribute("usuario") == null)

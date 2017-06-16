@@ -49,11 +49,6 @@ public class PetianoController {
 		return "private/petianos/cadastro";
 	}
 
-	@RequestMapping(path="/edicao")
-	public String edicao(){
-		return "private/petianos/edicao";
-	}
-
 	@RequestMapping(path="/cadastrar", method=RequestMethod.POST, params="action=cadastrar")		
 	public String cadastrar(Petiano petiano, @RequestParam(name="confirmaSenha") String confirmaSenha, 
 			@RequestParam("fotoCaricaturaFile") MultipartFile fotoCaricatura, 
@@ -163,6 +158,7 @@ public class PetianoController {
 		petiano.setAtivo(petianoAntigo.isAtivo());
 		petiano.setId(petianoAntigo.getId());
 		usuarioService.saveUsuario(petiano);
+		session.setAttribute("usuario", petiano);
 		return "redirect:/dashboard-petiano";
 	}
 	

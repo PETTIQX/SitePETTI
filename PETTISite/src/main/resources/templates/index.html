@@ -33,17 +33,17 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	<!-- Modais -->
 	<div th:each="tutor : ${tutores}" th:id="${'modalTutor' + tutor.id}" class="modal modal-fixed-footer">
     	<div class="modal-content center">
-        	<figure class="icone-integrante" th:if="${tutor.fotoReal} != null">
+        	<figure class="icone-integrante-modal" th:if="${tutor.fotoReal} != null">
         		<img class="circle reponsive-img" th:src="@{/img/fotoReal/{foto}(foto=${tutor.fotoReal})}" th:title="${tutor.nome}"/>
         	</figure>
-        	<figure class="icone-integrante" th:if="${tutor.fotoReal} == null">
+        	<figure class="icone-integrante-modal" th:if="${tutor.fotoReal} == null">
             	<img class="circle reponsive-img" th:src="@{/img/person.png}" th:title="${tutor.nome}"/>
             </figure>
         	
         	<br/>
         	<h5 class="center" th:text="${tutor.nome}"></h5>
         	<p th:inline="text"><b>E-mail: </b>[[${tutor.email}]]</p>
-        	<p th:inline="text"><b>Lattes: </b>[[${tutor.linkLattes}]]</p>
+        	<p th:inline="text"><b>Lattes: </b><a th:href="@{http://{link}(link=${tutor.linkLattes})}" target="_blank">[[${tutor.linkLattes}]]</a></p>
        	</div>
         <div class="modal-footer">
       		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>
@@ -52,10 +52,10 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	
 	<div th:each="petiano : ${petianos}" th:id="${'modalPetiano' + petiano.id}" class="modal modal-fixed-footer">
     	<div class="modal-content center">
-        	<figure class="icone-integrante" th:if="${petiano.fotoReal} != null">
+        	<figure class="icone-integrante-modal" th:if="${petiano.fotoReal} != null">
         		<img class="circle reponsive-img" th:src="@{/img/fotoReal/{foto}(foto=${petiano.fotoReal})}" th:title="${petiano.nome}"/>
         	</figure>
-        	<figure class="icone-integrante" th:if="${petiano.fotoReal} == null">
+        	<figure class="icone-integrante-modal" th:if="${petiano.fotoReal} == null">
             	<img class="circle reponsive-img" th:src="@{/img/person.png}" th:title="${petiano.nome}"/>
             </figure>
         	
@@ -63,20 +63,20 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
         	<h5 class="center" th:text="${petiano.nome}"></h5>
         	<p th:inline="text"><b>Curso: </b>[[${petiano.curso}]]</p>
         	<p th:inline="text"><b>E-mail: </b>[[${petiano.email}]]</p>
-        	<p th:inline="text"><b>Lattes: </b>[[${petiano.linkLattes}]]</p>
+        	<p th:inline="text"><b>Lattes: </b><a th:href="@{http://{link}(link=${petiano.linkLattes})}" target="_blank">[[${petiano.linkLattes}]]</a></p>
        	</div>
         <div class="modal-footer">
-      		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>
+      		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
     	</div>
  	</div>
  	
  	
  	<div th:each="atividade : ${atividades}" th:id="${'modalAtividade' + atividade.id}" class="modal modal-fixed-footer">
     	<div class="modal-content center">
-        	<figure class="icone-integrante" th:if="${atividade.icone} != null">
+        	<figure class="icone-integrante-modal" th:if="${atividade.icone} != null">
         		<img class="circle reponsive-img" th:src="@{/img/iconesAtividades/{foto}(foto=${atividade.icone})}" th:title="${atividade.nome}"/>
         	</figure>
-        	<figure class="icone-integrante" th:if="${atividade.icone} == null">
+        	<figure class="icone-integrante-modal" th:if="${atividade.icone} == null">
             	<img class="circle reponsive-img" th:src="@{/img/activity.png}" th:title="${atividade.nome}"/>
             </figure>
         	
@@ -148,7 +148,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
     <!--Fim Banner-->
 
     <!--Atividades-->
-    <section class="atividades-class  light-green lighten-2" id="atividades">
+    <section class="atividades-class light-green lighten-2" id="atividades">
         <div class="container">
             <div class="row">
                 <div class="col s12 center">
@@ -219,8 +219,6 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	                            </div>
                         	</div>
 						</div>
-                        
-
                     </div>
                 </div>
         	</div>

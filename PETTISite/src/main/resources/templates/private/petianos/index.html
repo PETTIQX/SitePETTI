@@ -51,11 +51,11 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 						<img th:src="@{/img/person.png}" th:if="${petiano.fotoCaricatura} == null" alt="" width="50" class="circle responsive-img" />
 					</td>
 					<td th:text="${petiano.nome}"></td>
-					<td><a class="waves-effect waves-light btn blue"><i
-							class="material-icons left">settings</i>Editar</a> <a
-						th:href="@{/petianos/excluir/{id}(id=${petiano.id})}"
-						class="waves-effect waves-light btn red"><i
-							class="material-icons left">delete</i>Excluir</a></td>
+					<td>
+						<a th:href="@{/petianos/excluir/{id}(id=${petiano.id})}" class="waves-effect waves-light btn red">
+							<i class="material-icons left">delete</i>Excluir
+						</a>
+					</td>
 					<td></td>
 				</tr>
 			</tbody>
