@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.ufc.quixada.petti.model.Petiano;
-import br.ufc.quixada.petti.model.Usuario;
 import br.ufc.quixada.petti.repository.PetianoRepository;
 
 @Service

@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<body>
+		<!--Primeiro Rodapé -->
+		<footer th:fragment="footer" class="page-footer  indigo accent-1">
+			<div class="container">
+		    	<div class="row">
+		        	<div class="col l6 s12">
+		            	<img id="logo_footer" class="responsive-img" th:src="@{img/logo-footer.png}"/>
+		           	</div>
+		
+		           	<div class="col l4 offset-l2 s12">
+		            	<p class="grey-text text-lighten-4 contato-font">
+		                	Av. José de Freitas Queiroz, 5003<br/> Bloco 1 - PET - Tecnologia da Informação<br/> Quixadá - CE<br/><br/>
+		
+		                    <!-- Redes sociais -->
+		                    <!--  "&nbsp" significa um espaço -->
+		
+		                    <a href="https://www.facebook.com/petccqx/" target="_blank"><i class="fa fa-facebook-f fa-2x" aria-hidden="true"></i></a> &nbsp; &nbsp;
+		                    <a href="https://twitter.com/petccqx" target="_blank"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a> &nbsp; &nbsp;
+		                    <a href="https://www.instagram.com/pettiqx/" target="_blank"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a> &nbsp; &nbsp;
+		                    <!-- Colocar um tooltip no e-mail -->
+		                    <a href=""><i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i></a> &nbsp; &nbsp;
+		                    <!-- Fim Redes Sociais -->
+		              	</p>
+		
+		         	</div>
+		    	</div>
+			</div>
+			<!--Fim primeiro rodape -->
+			<!--Segundo Rodape -->
+		    <div class="footer-copyright" id="contato">
+		    	<div class="container">
+		        	©2017 Todos os direitos reservados.
+		       	</div>
+		  	</div>
+		    <!--Fim Segundo Rodape -->	
+		</footer>
+	</body>
+</html>

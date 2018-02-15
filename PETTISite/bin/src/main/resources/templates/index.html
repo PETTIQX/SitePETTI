@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <title>PET-TI Quixadá</title>
+
+    <!-- CSS  -->
+    <!--Import Google Icon Font-->
+	<link th:href="@{http://fonts.googleapis.com/icon?family=Material+Icons}" rel="stylesheet" />
+	<!--Import materialize.css-->
+	<link th:href="@{/webjars/materializecss/css/materialize.css}" type="text/css" rel="stylesheet" media="screen,projection" />
+    
+    <!-- Import our CSS -->
+	<link th:href="@{/css/style.css}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link th:href="@{/css/estilo.css}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="shortcut icon" th:href="@{favicon.ico}" />
+    
+    <script th:src="@{https://use.fontawesome.com/2468e00924.js}"></script>
+
+</head>
+
+<body>
+
+    
+	<div th:include="fragments/navbar"></div>
+	
+	<!-- Modais -->
+	<div th:each="tutor : ${tutores}" th:id="${'modalTutor' + tutor.id}" class="modal modal-fixed-footer">
+    	<div class="modal-content center">
+        	<figure class="icone-integrante-modal" th:if="${tutor.fotoReal} != null">
+        		<img class="circle reponsive-img" th:src="@{/img/fotoReal/{foto}(foto=${tutor.fotoReal})}" th:title="${tutor.nome}"/>
+        	</figure>
+        	<figure class="icone-integrante-modal" th:if="${tutor.fotoReal} == null">
+            	<img class="circle reponsive-img" th:src="@{/img/person.png}" th:title="${tutor.nome}"/>
+            </figure>
+        	
+        	<br/>
+        	<h5 class="center" th:text="${tutor.nome}"></h5>
+        	<p th:inline="text"><b>E-mail: </b>[[${tutor.email}]]</p>
+        	<p th:inline="text"><b>Lattes: </b><a th:href="@{http://{link}(link=${tutor.linkLattes})}" target="_blank">[[${tutor.linkLattes}]]</a></p>
+       	</div>
+        <div class="modal-footer">
+      		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>
+    	</div>
+ 	</div>
+	
+	<div th:each="petiano : ${petianos}" th:id="${'modalPetiano' + petiano.id}" class="modal modal-fixed-footer">
+    	<div class="modal-content center">
+        	<figure class="icone-integrante-modal" th:if="${petiano.fotoReal} != null">
+        		<img class="circle reponsive-img" th:src="@{/img/fotoReal/{foto}(foto=${petiano.fotoReal})}" th:title="${petiano.nome}"/>
+        	</figure>
+        	<figure class="icone-integrante-modal" th:if="${petiano.fotoReal} == null">
+            	<img class="circle reponsive-img" th:src="@{/img/person.png}" th:title="${petiano.nome}"/>
+            </figure>
+        	
+        	<br/>
+        	<h5 class="center" th:text="${petiano.nome}"></h5>
+        	<p th:inline="text"><b>Curso: </b>[[${petiano.curso}]]</p>
+        	<p th:inline="text"><b>E-mail: </b>[[${petiano.email}]]</p>
+        	<p th:inline="text"><b>Lattes: </b><a th:href="@{http://{link}(link=${petiano.linkLattes})}" target="_blank">[[${petiano.linkLattes}]]</a></p>
+       	</div>
+        <div class="modal-footer">
+      		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
+    	</div>
+ 	</div>
+ 	
+ 	
+ 	<div th:each="atividade : ${atividades}" th:id="${'modalAtividade' + atividade.id}" class="modal modal-fixed-footer">
+    	<div class="modal-content center">
+        	<figure class="icone-integrante-modal" th:if="${atividade.icone} != null">
+        		<img class="circle reponsive-img" th:src="@{/img/iconesAtividades/{foto}(foto=${atividade.icone})}" th:title="${atividade.nome}"/>
+        	</figure>
+        	<figure class="icone-integrante-modal" th:if="${atividade.icone} == null">
+            	<img class="circle reponsive-img" th:src="@{/img/activity.png}" th:title="${atividade.nome}"/>
+            </figure>
+        	
+        	<br/>
+        	<h5 class="center" th:text="${atividade.nome}"></h5>
+        	<p th:inline="text"><b>Descrição: </b>[[${atividade.descricao}]]</p>
+       	</div>
+        <div class="modal-footer">
+      		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>
+    	</div>
+ 	</div>
+    <!-- Fim modais -->
+	
+	
+    <!-- Parallax começa aqui -->
+    <!-- Sobre -->
+    <section class="sobre indigo accent-1" id="sobre">
+        <div class="container indigo accent-1" id="sobre">
+            <div class="section indigo accent-1">
+                <p>
+                    <h4 class="center titulo_secao">Nossos pilares</h4>
+                </p>
+                <!--   Icon Section   -->
+                <div class="row">
+                    <div class="col s12 m4">
+                        <div class="icon-block">
+                            <figure class="icone-inicio">
+                                <img class="responsive-img" th:src="@{/img/icones/ensino.png}" alt="Pesquisa"/>
+                            </figure>
+                            <h5 class="center">Ensino</h5>
+                            <p class="center"> Projetos e atividades para melhorar as graduações do campus da UFC em Quixadá.</p>
+                        </div>
+                    </div>
+                    <div class="col s12 m4">
+                        <div class="icon-block">
+                            <figure class="icone-inicio">
+                                <img class="responsive-img" th:src="@{/img/icones/pesquisa.png}" alt="Ensino"/>
+                            </figure>
+                            <h5 class="center">Pesquisa</h5>
+                            <p class="center">Nas áreas de Design Digital, Engenharia de Software, Ciência da Computação, Engenharia de Computação, Sistemas de Informação e Redes de Computadores.</p>
+                        </div>
+                    </div>
+                    <div class="col s12 m4">
+                        <div class="icon-block">
+                            <figure class="icone-inicio extensao">
+                                <img class="responsive-img" th:src="@{/img/icones/extensao.png}" alt="Extensão"/>
+                            </figure>
+                            <h5 class="center">Extensão</h5>
+                            <p class="center">Organizamos o FLISoL Quixadá, InfoGirl e Game Night.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Fim Sobre-->
+
+    <!--Banner -->
+    <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="header col s12 light"></h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img th:src="@{/img/background2.jpg}" alt="Unsplashed background img 2"/></div>
+    </div>
+    <!--Fim Banner-->
+
+    <!--Atividades-->
+    <section class="atividades-class light-green lighten-2" id="atividades">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 center">
+                    <h4 class="center titulo_secao">Atividades</h4>
+                    <!-- Linha de separação -->
+                    <div id="container-atividades center">
+						<div th:each="atividade : ${atividades}">
+	                    	<div class="col s6 m3 l3">
+	                            <div class="atividade">
+	                                <figure class="icone-integrante" th:if="${atividade.icone} != null">
+	                                    <a th:href="@{'#modalAtividade' + ${atividade.id}}"><img class="circle reponsive-img" th:src="@{/img/iconesAtividades/{icone}(icone=${atividade.icone})}" th:title="${atividade.nome}"/></a>
+	                                </figure>
+	                                <figure class="icone-integrante" th:if="${atividade.icone} == null">
+	                                    <a th:href="@{'#modalAtividade' + ${atividade.id}}"><img class="circle reponsive-img" th:src="@{/img/activity.png}" th:title="${atividade.nome}"/></a>
+	                                </figure>
+	                            </div>
+	                      	</div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Fim atividades -->
+
+    <!--Banner -->
+    <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="header col s12 light"></h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img th:src="@{/img/background2.jpg}" alt="Unsplashed background img 2"/></div>
+    </div>
+    <!-- Fim Banner -->
+
+    <!-- Membros -->
+    <section class="membros-class yellow lighten-3" id="membros-atuais">
+        <div class="container">
+       		<div class="row">
+            	<div class="col s12 center">
+                    <h4 class="center titulo_secao">Integrantes</h4>
+                    <div id="container-membros center">
+                        <div class="row">
+                        	<div th:each="tutor : ${tutores}">
+	                            <div class="membro">
+	                                <figure class="icone-integrante" th:if="${tutor.fotoCaricatura} != null">
+	                                    <a th:href="@{'#modalTutor' + ${tutor.id}}"><img class="circle reponsive-img" th:src="@{/img/fotoCaricatura/{foto}(foto=${tutor.fotoCaricatura})}" th:title="${petiano.nome}"/></a>
+	                                </figure>
+	                                <figure class="icone-integrante" th:if="${tutor.fotoCaricatura} == null">
+	                                    <a th:href="@{'#modalTutor' + ${tutor.id}}"><img class="circle reponsive-img" th:src="@{/img/person.png}" th:title="${tutor.nome}"/></a>
+	                                </figure>
+	                            </div>
+                        	</div>
+                        </div>
+                        
+						<div class="row">
+							<div th:each="petiano : ${petianos}" class="col s6 m3 l3">
+	                            <div class="membro">
+	                                <figure class="icone-integrante" th:if="${petiano.fotoCaricatura} != null">
+	                                    <a th:href="@{'#modalPetiano' + ${petiano.id}}"><img class="circle reponsive-img" th:src="@{/img/fotoCaricatura/{foto}(foto=${petiano.fotoCaricatura})}" th:title="${petiano.nome}"/></a>
+	                                </figure>
+	                                <figure class="icone-integrante" th:if="${petiano.fotoCaricatura} == null">
+	                                    <a th:href="@{'#modalPetiano' + ${petiano.id}}"><img class="circle reponsive-img" th:src="@{/img/person.png}" th:title="${petiano.nome}"/></a>
+	                                </figure>
+	                            </div>
+                        	</div>
+						</div>
+                    </div>
+                </div>
+        	</div>
+        </div>
+    </section>
+    <!-- Fim integrantes -->
+
+    <!--Banner -->
+    <div class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="header col s12 light"></h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img th:src="@{/img/background2.jpg}" alt="Unsplashed background img 2"/></div>
+    </div>
+    <!-- Fim Banner -->
+
+    <div th:include="fragments/footer"></div>
+
+    <!--Import jQuery before materialize.js-->
+	<script th:src="@{/webjars/jquery/jquery.js}"></script>
+	<script th:src="@{/webjars/materializecss/js/materialize.js}"></script>
+    
+    <script th:src="@{/js/init.js}"></script>
+
+    <script>
+        // DropDown Animação
+        $('.dropdown-button').dropdown({
+            inDuration: 300,
+            outDuration: 190,
+            constrainWidth: false, // Does not change width of dropdown to that of the activator
+            hover: true, // Activate on hover
+            gutter: 0, // Spacing from edge
+            belowOrigin: false, // Displays dropdown below the button
+            alignment: 'left', // Displays dropdown with edge aligned to the left of button
+            stopPropagation: false // Stops event propagation
+        });
+
+
+        //Diz para o navegador o que será carregado no momento em que a página é acessada.
+        jQuery("document").ready(function($) {
+
+            //Elemento que vai receber os eventos.
+            var nav = $('.white');
+
+            //Ao rolar a página, a função será executada.
+            $(window).scroll(function() {
+                //Se o tamanho da parte rodada for maior que 136px (pixels) ->
+                if ($(this).scrollTop() > 136) {
+                    nav.addClass("scrolled_menu"); //Aplica a classe scrolled_menu no elemento .menu
+                } else {
+                    nav.removeClass("scrolled_menu"); //Remove a classe scrolled_menu no elemento .menu
+                }
+            });
+
+        });
+
+        // Botão responsivo do menu
+        $(".button-collapse").sideNav();
+
+        // Modal
+        $('.modal').modal({
+            dismissible: true, // Modal can be dismissed by clicking outside of the modal
+            opacity: .6, // Opacity of modal background
+            inDuration: 300, // Transition in duration
+            outDuration: 200, // Transition out duration
+            startingTop: '5%', // Starting top style attribute
+            endingTop: '10%', // Ending top style attribute
+            ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+
+                console.log(modal, trigger);
+            },
+            complete: function() {
+
+                } // Callback for Modal close
+        });
+    </script>
+
+</body>
+
+</html>

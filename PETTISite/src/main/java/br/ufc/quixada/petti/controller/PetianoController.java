@@ -16,11 +16,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.ufc.quixada.petti.model.Petiano;
-import br.ufc.quixada.petti.model.Tutor;
+//import br.ufc.quixada.petti.model.Tutor;
 import br.ufc.quixada.petti.model.Usuario;
 import br.ufc.quixada.petti.service.PetianoService;
 import br.ufc.quixada.petti.service.StorageFileService;
-import br.ufc.quixada.petti.service.TutorService;
+//import br.ufc.quixada.petti.service.TutorService;
 import br.ufc.quixada.petti.service.UsuarioService;
 import br.ufc.quixada.petti.util.CriptUtil;
 

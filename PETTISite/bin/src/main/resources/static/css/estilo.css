@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.scrolled_menu {
+    /*Regras fixas*/
+    width: 100%;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    position: fixed;
+    /*Customizações*/
+    background-color: white;
+}
+
+.h1-egresso {
+    text-align: center;
+}
+
+
+figure.icone-inicio img {
+    width: 80px;
+    height: 92px;
+    margin-left: 65px;
+}
+
+figure.icone-integrante-modal img{
+	width: 160px;
+    height: 160px;
+    margin-left: -18px;
+    cursor: pointer;
+}
+
+figure.icone-integrante img {
+    width: 160px;
+    height: 160px;
+    margin-left: -18px;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+figure.icone-integrante img:hover {
+    opacity: 1;
+}
+
+figure.icone-atividade img {
+    width: 160px;
+    height: 160px;
+    margin-left: -18px;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+figure.icone-atividade img:hover {
+    opacity: 1;
+}
+
+figure.logo-atividade img {
+    width: 300px;
+    height: 300px;
+}
+
+#texto-atividade {
+    margin: 20px;
+    width: 800px;
+    text-align: justify;
+}
+
+figure.foto-petiano-atividade img {
+    width: 300px;
+    height: 300px;
+}
+
+.white .nav-wrapper .brand-logo img {
+    padding: 6px;
+    width: 150px;
+    height: 66px;
+}
+
+.dropdown-content li>a {
+    color: #536dfe;
+}
+
+.titulo_secao {
+    padding: 15px;
+    margin-top: 55px;
+}
+
+#logo_footer {
+    width: 353px;
+    height: 130px;
+    margin-top: 10px;
+}
+
+.page-footer {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.contato-font {
+    font-size: 14px;
+}
+
+.fa-times {
+    color: #000;
+}
+
+.fa-facebook-f, .fa-twitter, .fa-instagram, .fa-envelope-o {
+    color: #fff;
+}
+
+.fa-facebook-f:hover, .fa-twitter:hover, .fa-instagram:hover, .fa-envelope-o:hover {
+    color: #002653;
+}
+
+.modal-content {
+    color: #000;
+}
+
+.modal {
+    margin-top: 60px;
+}
+
+hr {
+    color: #000;
+    text-decoration: none;
+    border-color: #000;
+}
+
+h5, h4, h3, h2, h1, p{
+  color: #000;
+}
+
+.fa-exclamation-triangle {
+  color: red;
+}
+
+#egressos {
+  width: 30%;
+  height: 30%;
+  float: left;
+}
+
+#fechar {
+  float: right;
+}
+
+.centered-panel{
+    margin: 50px auto;
+    padding: 20px 50px;
+}

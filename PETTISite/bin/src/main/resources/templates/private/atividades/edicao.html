@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en"
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <title>PET-TI Quixadá</title>
+
+    <!-- CSS  -->
+    <!--Import Google Icon Font-->
+	<link th:href="@{http://fonts.googleapis.com/icon?family=Material+Icons}" rel="stylesheet" />
+	<!--Import materialize.css-->
+	<link th:href="@{/webjars/materializecss/css/materialize.css}" type="text/css" rel="stylesheet" media="screen,projection" />
+    
+    <!-- Import our CSS -->
+	<link th:href="@{/css/style.css}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link th:href="@{/css/estilo.css}" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="shortcut icon" th:href="@{favicon.ico}" />
+    
+    <script th:src="@{https://use.fontawesome.com/2468e00924.js}"></script>
+
+</head>
+
+<body th:background="@{/img/background2.jpg}">
+
+	<div class="card-panel centered-panel" style="width:500px;">
+    	<div class="center">
+    		<img th:src="@{/img/logo.png}" width="300"/>
+	    </div>
+    	<form class="col s12" th:action="@{/atividades/editar}" enctype="multipart/form-data" method="post">
+	      <input type="hidden" name="id" th:value="${atividade.id}"/>
+	      <div class="row">
+	        <div class="input-field col s12">
+	          <input id="nome" type="text" name="nome" class="validate" th:value="${atividade.nome}"/>
+	          <label for="nome">Nome</label>
+	        </div>
+	      </div>
+   	      
+   	      <div class="row">
+        	<div class="input-field col s12">
+          		<textarea id="descricao" class="materialize-textarea" name="descricao" th:text="${atividade.descricao}">[...]</textarea>
+          		<label for="descricao">Descrição</label>
+        	</div>
+      	  </div>
+   	      
+	      <div class="row">
+	      	<div class="file-field input-field">
+		      <div class="btn blue">
+		        <span>Ícone</span>
+		        <input type="file" name="iconeFile" />
+		      </div>
+		      <div class="file-path-wrapper">
+		        <input class="file-path validate" type="text" />
+		      </div>
+		    </div>
+	      </div>
+	      <div class="row">
+	      	<div class="card-panel red white-text center" th:if="${erro != null}" th:text="${erro}"></div>
+	      </div>
+	      <div class="row center">
+	      	 <div class="input-field col s12">
+	        	<button class="pull-left waves-effect waves-light btn red" name="action" value="cancelar">Cancelar</button>
+	        	<button class="pull-right waves-effect waves-light btn blue" name="action" value="editar">Editar</button>
+	      	</div>
+	      </div>
+	    </form>
+  	</div>
+
+    <!--Import jQuery before materialize.js-->
+	<script th:src="@{/webjars/jquery/jquery.js}"></script>
+	<script th:src="@{/webjars/materializecss/js/materialize.js}"></script>
+    
+    <script th:src="@{/js/init.js}"></script>
+
+</body>
+
+</html>

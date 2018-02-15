@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+//import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.ufc.quixada.petti.model.Atividade;
-import br.ufc.quixada.petti.model.Petiano;
+//import br.ufc.quixada.petti.model.Petiano;
 import br.ufc.quixada.petti.service.AtividadeService;
 import br.ufc.quixada.petti.service.StorageFileService;
-import br.ufc.quixada.petti.util.CriptUtil;
+//import br.ufc.quixada.petti.util.CriptUtil;
 
 @Controller
 @RequestMapping(path="/atividades")
